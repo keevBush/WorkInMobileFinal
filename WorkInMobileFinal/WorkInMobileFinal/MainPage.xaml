@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WorkInMobileFinal"
+             BackgroundColor="#e9ecf7"
+             x:Class="WorkInMobileFinal.MainPage">
+    <ScrollView>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+            <StackLayout
+            Margin="20,0"
+            >
+                <Grid HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame
+                        BackgroundColor="BlueViolet"
+                        Margin="0,20,0,0"
+                        Padding="5,0"
+                        VerticalOptions="Start"
+                        >
+                        <Label 
+                            TextColor="White"
+                            FontSize="35"
+                            Text="Work"
+                            FontAttributes="Bold"
+                            />
+                    </Frame>
+                    <Frame
+                        Grid.Column="1"
+                        BackgroundColor="RoyalBlue"
+                        Margin="0,20,0,0"
+                        Padding="5,0"
+                        VerticalOptions="Start"
+                        >
+                        <Label 
+                            TextColor="White"
+                            FontSize="35"
+                            Text="In"
+                            FontAttributes="Bold"
+                            />
+                    </Frame>
+                </Grid>
+                
+            <Label 
+                Text="Connexion"
+                TextColor="#4d38c4"
+                Margin="0,0,0,100"
+                HorizontalOptions="Center"
+                FontSize="20"
+                FontAttributes="Bold"
+                />
+            <Entry
+                Keyboard="Email"
+                Placeholder="Email"
+                PlaceholderColor="#88a2ee"
+                TextColor="RoyalBlue"
+            />
+            <Entry
+                PlaceholderColor="#88a2ee"
+                TextColor="RoyalBlue"
+                IsPassword="True"
+                Placeholder="Mot de passe"
+                />
+            <Button
+                CornerRadius="5"
+                Text="Connexion"
+                BackgroundColor="RoyalBlue"
+                Padding="10,0"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                />
+                <Label
+            
+            Text="Mot de passe oublié ?"
+            FontAttributes="Bold"
+            HorizontalOptions="End"
+            TextColor="RoyalBlue"
+            Margin="0,15,0,0"
+            />
+        <BoxView
+            Margin="0,20"
+            HeightRequest="1"
+            BackgroundColor="#aaaaaa"
+            />
+        <Label
+            HorizontalOptions="Center"
+            >
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Vous n'avez pas de compte? "
+                          TextColor="#0d1324"
+                          />
+                    <Span Text="Créer en un"
+                          FontAttributes="Bold"
+                          TextColor="RoyalBlue"
+                          />
+                </FormattedString>
+            </Label.FormattedText>
+            
+        </Label>
+    </StackLayout>
+        <Frame
+            BackgroundColor="#aebbe2"
+            CornerRadius="0"
+            Grid.Row="1"
+            >
+            <Label
+                TextColor="#0d1324"
+                Text="Work in 2019 - Tout droits réservé"
+                HorizontalOptions="Center"
+                />
+        </Frame>
+    </Grid>
+    </ScrollView>
+
+</ContentPage>

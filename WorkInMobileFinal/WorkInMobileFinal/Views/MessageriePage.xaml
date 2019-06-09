@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkInMobileFinal.Views.MessageriePage">
+    <NavigationPage.TitleView>
+        <Grid>
+            <Label
+                VerticalOptions="Center"
+                Text="Messagerie"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                TextColor="White"
+                />
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ListView
+            x:Name="lst"
+            HasUnevenRows="True"
+            SelectionMode="None"
+            CachingStrategy="RecycleElement"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Frame
+                                Padding="0"
+                                >
+                                <Image
+                                    WidthRequest="50"
+                                    HeightRequest="50"
+                                    />
+                            </Frame>
+                            <Grid
+                                Grid.Column="1"
+                                >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label
+                                    Text="Message"
+                                    />
+                                <Label
+                                    Grid.Row="1"
+                                    Text="Message"
+                                    />
+                            </Grid>
+                            
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Grid>
+                    <Label
+                        Text="5 Discussions"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        Margin="0,16"
+                        />
+                </Grid>
+            </ListView.Footer>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
