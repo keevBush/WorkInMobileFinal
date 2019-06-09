@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="WorkInMobileFinal.Views.MessageriePage">
     <NavigationPage.TitleView>
         <Grid>
@@ -23,17 +24,27 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
+                        <Grid
+                            Margin="10,5"
+                            >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Frame
                                 Padding="0"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                CornerRadius="50"
+                                WidthRequest="70"
+                                HeightRequest="70"
                                 >
                                 <Image
                                     WidthRequest="50"
                                     HeightRequest="50"
+                                    VerticalOptions="Fill"
+                                    HorizontalOptions="Fill"
+                                    Source="https://github.com/contrix09/XF-Material-Library/blob/master/images/xf.material_logo.png"
                                     />
                             </Frame>
                             <Grid
@@ -42,15 +53,24 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                                 <Label
                                     Text="Message"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
                                     />
                                 <Label
                                     Grid.Row="1"
-                                    Text="Message"
+                                    Text="ok"
+                                    />
+                                <Label
+                                    Grid.Row="3"
+                                    Text="date"
+                                    FontSize="Micro"
+                                    FontAttributes="Italic"
+                                    HorizontalOptions="End"
                                     />
                             </Grid>
                             
@@ -61,7 +81,7 @@
             <ListView.Footer>
                 <Grid>
                     <Label
-                        Text="5 Discussions"
+                        Text="Nombre discussions"
                         FontAttributes="Bold"
                         HorizontalOptions="Center"
                         Margin="0,16"

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace WorkInMobileFinal.Views
 {
@@ -19,6 +20,15 @@ namespace WorkInMobileFinal.Views
         {
             InitializeComponent();
             lst.ItemsSource = new List<string> { "", "", "", "", "", "" };
+           // LoadData();
+            
+        }
+
+        private async void LoadData()
+        {
+            await MaterialDialog.Instance.AlertAsync(message: "This is an alert dialog",
+                                    title: "Alert Dialog",
+                                    acknowledgementText: "Got It");
         }
     }
 }

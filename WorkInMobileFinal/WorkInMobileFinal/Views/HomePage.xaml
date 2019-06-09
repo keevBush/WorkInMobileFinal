@@ -5,6 +5,8 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.IsSwipePagingEnabled="False"
             android:Button.UseDefaultShadow="True"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            xmlns:views="clr-namespace:WorkInMobileFinal.Views"
             CurrentPageChanged="TabbedPage_CurrentPageChanged"
             >
     <NavigationPage.TitleView>
@@ -15,15 +17,39 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <Label
-                FontSize="Large"
+                FontSize="Medium"
                 FontAttributes="Bold"
                 x:Name="title"
+                VerticalOptions="Center"
+                TextColor="White"
+                />
+            <ImageButton
+                Source="icons8_Chat_64px.png"
+                Grid.Column="1"
+                BackgroundColor="Transparent"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                CornerRadius="50"
+                HeightRequest="50"
+                WidthRequest="50"
+                Padding="8"
+                />
+            <ImageButton
+                Source="icons8_Settings_50px.png"
+                Grid.Column="2"
+                BackgroundColor="Transparent"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                CornerRadius="50"
+                HeightRequest="50"
+                WidthRequest="50"
+                Padding="8"
                 />
         </Grid>
     </NavigationPage.TitleView>
    
   <!--Pages can be added as references or inline-->
-  <ContentPage Title="Tab 1" />
-  <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
+    <ContentPage IconImageSource="icons8_Activity_Feed_64px_1.png" Title="Activités" />
+    <views:NotificationsPage IconImageSource="icons8_Notification_50px_1.png" Title="Notifications" />
+    <ContentPage IconImageSource="icons8_Male_User_52px_1.png" Title="Profil" />
 </TabbedPage>
