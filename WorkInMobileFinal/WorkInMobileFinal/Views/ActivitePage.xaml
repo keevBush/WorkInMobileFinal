@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkInMobileFinal.Views.ActivitePage"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <materialDesign:MaterialCard
+                BackgroundColor="White"
+                Margin="8"
+                Padding="5"
+                >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame
+                            BackgroundColor="Blue"
+                            WidthRequest="30"
+                            CornerRadius="50"
+                            HeightRequest="30"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            >
+                            
+                        </Frame>
+                        <Grid
+                            Grid.Column="1"
+                            VerticalOptions="Center"
+                            RowSpacing="5"
+                            >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label
+                                TextColor="Black"
+                                Text="Nom entreprise"
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                Opacity="0.8"
+                                />
+                            <Label
+                                Grid.Row="1"
+                                TextColor="Black"
+                                FontAttributes="Italic"
+                                FontSize="Small"
+                                Opacity="0.8"
+                                >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Posté "/>
+                                        <Span Text="le 15/01/2013"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid
+                        Grid.Row="1"
+                        >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            Opacity="0.8"
+                            Text="Nom post"
+                            />
+                        <Label
+                            TextColor="Black"
+                            FontSize="Small"
+                            Grid.Row="1"
+                            Opacity="0.8"
+                            Text="Description post...."
+                            />
+                        <Label
+                            TextColor="Black"
+                            FontSize="Small"
+                            Grid.Row="2"
+                            Opacity="0.8"
+                            >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Skills recherché: "/>
+                                    <Span Text="Liste de skills demandé pour le post"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <materialDesign:MaterialButton
+                            ButtonType="Outlined"
+                            BorderColor="RoyalBlue"
+                            Padding="20,0"
+                            Command="{Binding ParticiperCommand}"
+                            PressedBackgroundColor="#a2b4eb"
+                            TextColor="RoyalBlue"
+                            Text="J'y participe"
+                            HorizontalOptions="End"
+                            Grid.Row="3"
+                            />
+                    </Grid>
+                </Grid>
+            </materialDesign:MaterialCard>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

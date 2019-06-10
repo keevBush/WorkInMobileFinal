@@ -19,30 +19,30 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <Frame
-                        BackgroundColor="BlueViolet"
-                        Margin="0,20,0,0"
-                        Padding="5,0"
-                        VerticalOptions="Start"
-                        >
+                            BackgroundColor="BlueViolet"
+                            Margin="0,20,0,0"
+                            Padding="5,0"
+                            VerticalOptions="Start"
+                            >
                             <Label 
-                            TextColor="White"
-                            FontSize="35"
-                            Text="Work"
-                            FontAttributes="Bold"
-                            />
+                                TextColor="White"
+                                FontSize="35"
+                                Text="Work"
+                                FontAttributes="Bold"
+                                />
                         </Frame>
                         <Frame
-                        Grid.Column="1"
-                        BackgroundColor="RoyalBlue"
-                        Margin="0,20,0,0"
-                        Padding="5,0"
-                        VerticalOptions="Start"
-                        >
+                            Grid.Column="1"
+                            BackgroundColor="RoyalBlue"
+                            Margin="0,20,0,0"
+                            Padding="5,0"
+                            VerticalOptions="Start"
+                            >
                             <Label 
-                            TextColor="White"
-                            FontSize="35"
-                            Text="In"
-                            FontAttributes="Bold"
+                                TextColor="White"
+                                FontSize="35"
+                                Text="In"
+                                FontAttributes="Bold"
                             />
                         </Frame>
                     </Grid>

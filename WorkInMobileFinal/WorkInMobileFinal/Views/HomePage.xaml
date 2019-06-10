@@ -8,6 +8,10 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             xmlns:views="clr-namespace:WorkInMobileFinal.Views"
             CurrentPageChanged="TabbedPage_CurrentPageChanged"
+            BarBackgroundColor="RoyalBlue"
+            BarTextColor="White"
+            SelectedTabColor="White"
+            UnselectedTabColor="#d1d6e4"
             >
     <NavigationPage.TitleView>
         <Grid>
@@ -26,7 +30,9 @@
             <ImageButton
                 Source="icons8_Chat_64px.png"
                 Grid.Column="1"
-                BackgroundColor="Transparent"
+                x:Name="btnMessagerie"
+                Clicked="BtnMessagerie_Clicked"
+                BackgroundColor="RoyalBlue"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 CornerRadius="50"
@@ -37,7 +43,8 @@
             <ImageButton
                 Source="icons8_Settings_50px.png"
                 Grid.Column="2"
-                BackgroundColor="Transparent"
+                Margin="0,0,10,0"
+                BackgroundColor="RoyalBlue"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 CornerRadius="50"
@@ -49,7 +56,7 @@
     </NavigationPage.TitleView>
    
   <!--Pages can be added as references or inline-->
-    <ContentPage IconImageSource="icons8_Activity_Feed_64px_1.png" Title="Activités" />
+    <views:ActivitePage IconImageSource="icons8_Activity_Feed_64px_1.png" Title="Activités" />
     <views:NotificationsPage IconImageSource="icons8_Notification_50px_1.png" Title="Notifications" />
     <ContentPage IconImageSource="icons8_Male_User_52px_1.png" Title="Profil" />
 </TabbedPage>

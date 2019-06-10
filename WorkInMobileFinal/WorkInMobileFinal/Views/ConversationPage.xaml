@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkInMobileFinal.Views.ConversationPage"
+             xmlns:customControl="clr-namespace:WorkInMobileFinal.CustomControls"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             >
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Frame
+                Padding="0"
+                WidthRequest="50"
+                HeightRequest="50"
+                CornerRadius="50"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="White"
+                >
+                
+            </Frame>
+            <Label
+                VerticalOptions="Center"
+                Text="Nom entreprise"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                TextColor="White"
+                Opacity="0.85"
+                Grid.Column="1"
+                /> 
+            <ImageButton
+                Source="icons8_Menu_Vertical_50px_9.png"
+                Grid.Column="2"
+                Margin="0,0,10,0"
+                BackgroundColor="RoyalBlue"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                CornerRadius="50"
+                HeightRequest="50"
+                WidthRequest="50"
+                Padding="11"
+                />
+        </Grid>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView
+                Grid.Row="1"
+                >
+                <StackLayout
+                    Padding="10,0">
+                    <Grid
+                        RowSpacing="0"
+                        >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <materialDesign:MaterialCard
+                            BackgroundColor="RoyalBlue"
+                            HorizontalOptions="End"
+                            Elevation="0"
+                            Padding="10"
+                            CornerRadius="10"
+                            >
+                            <Label
+                                TextColor="White"
+                                Text="Message"
+                                Opacity="0.8"
+                                FontSize="Medium"
+                            />
+                        </materialDesign:MaterialCard>
+                        <Label
+                            Grid.Row="1"
+                            Text="Date"
+                            TextColor="Gray"
+                            Opacity="0.7"
+                            FontAttributes="Italic"
+                            HorizontalOptions="End"
+                            />
+                    </Grid>
+                    <Grid
+                        RowSpacing="0"
+                        >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <materialDesign:MaterialCard
+                            BackgroundColor="#DDDDDD"
+                            Elevation="0"
+                            HorizontalOptions="Start"
+                            Padding="10"
+                            CornerRadius="10"
+                            >
+                            <Label
+                                TextColor="#777777"
+                                Text="Message"
+                                FontSize="Medium"
+                            />
+                        </materialDesign:MaterialCard>
+                        <Label
+                            Grid.Row="1"
+                            Text="Date"
+                            TextColor="Gray"
+                            Opacity="0.7"
+                            FontAttributes="Italic"
+                            HorizontalOptions="Start"
+                            />
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+            <Grid
+                Grid.Row="2"
+                >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:MaterialCard
+                    BackgroundColor="White"
+                    Margin="3,3,0,6"
+                    Padding="0"
+                    CornerRadius="30"
+                    Elevation="0"
+                    >
+                    <customControl:CustomEditor
+                        VerticalOptions="FillAndExpand"
+                        AutoSize="TextChanges"
+                        MaxLength="600"
+                        Margin="3"
+                        FontSize="15"
+                        Placeholder="Entrer votre message ..."
+                        />
+                </materialDesign:MaterialCard>
+                <ImageButton
+                    Grid.Column="1"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    VerticalOptions="End"
+                    Source="icons8_Telegram_App_64px.png"
+                    Padding="8"
+                    BackgroundColor="RoyalBlue"
+                    Margin="0,0,5,5"
+                    CornerRadius="50"
+                    />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

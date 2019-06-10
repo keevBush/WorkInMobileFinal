@@ -22,5 +22,10 @@ namespace WorkInMobileFinal.Views
             var home = (TabbedPage)sender;
             title.Text = home.CurrentPage.Title;
         }
+
+        private async void BtnMessagerie_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MessageriePage());
+        }
     }
 }

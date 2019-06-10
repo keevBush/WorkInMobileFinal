@@ -30,5 +30,12 @@ namespace WorkInMobileFinal.Views
                                     title: "Alert Dialog",
                                     acknowledgementText: "Got It");
         }
+
+       
+
+        private async void ViewCell_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ConversationPage());
+        }
     }
 }
