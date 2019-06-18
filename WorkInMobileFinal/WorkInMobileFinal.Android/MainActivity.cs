@@ -21,6 +21,7 @@ namespace WorkInMobileFinal.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
+            Rg.Plugins.Popup.Popup.Init(this,savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
@@ -33,7 +34,7 @@ namespace WorkInMobileFinal.Droid
 
         public override void OnBackPressed()
         {
-            //XF.Material.Droid.Material.HandleBackButton(base.OnBackPressed);
+           // XF.Material.Droid.Material.HandleBackButton(base.OnBackPressed);
 
             Rg.Plugins.Popup.Popup.SendBackPressed();
         }

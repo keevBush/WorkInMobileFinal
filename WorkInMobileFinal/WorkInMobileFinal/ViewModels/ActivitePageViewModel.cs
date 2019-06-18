@@ -16,7 +16,7 @@ namespace WorkInMobileFinal.ViewModels
 
         private async void ExecuteParticiperCommand(object obj)
         {
-            await MaterialDialog.Instance.SnackbarAsync("En contact du serveur ...", "OK",3000,Configurations.SnackBarConfig.MaterialSnackbarConfiguration);
+            await MaterialDialog.Instance.SnackbarAsync("En contact du serveur ...", "OK",3000,Configurations.MaterialConfig.MaterialSnackbarConfiguration);
         }
     }
 }

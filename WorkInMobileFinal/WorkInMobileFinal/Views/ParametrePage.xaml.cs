@@ -10,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace WorkInMobileFinal.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InscriptionPage : ContentPage
+    public partial class ParametrePage : ContentPage
     {
-        public InscriptionPage()
+        public ParametrePage()
         {
             InitializeComponent();
-            BindingContext = new ViewModels.InscriptionPageViewModel(Navigation);
         }
     }
 }

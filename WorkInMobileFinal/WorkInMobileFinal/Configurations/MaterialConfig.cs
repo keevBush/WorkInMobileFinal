@@ -6,8 +6,29 @@ using XF.Material.Forms.UI.Dialogs.Configurations;
 
 namespace WorkInMobileFinal.Configurations
 {
-    public class SnackBarConfig
+    public class MaterialConfig
     {
+        private static MaterialLoadingDialogConfiguration _materialLoadingDialogConfiguration;
+        public static MaterialLoadingDialogConfiguration MaterialLoadingDialogConfiguration
+        {
+            get
+            {
+                if(_materialLoadingDialogConfiguration == null)
+                {
+                    _materialLoadingDialogConfiguration = new MaterialLoadingDialogConfiguration
+                    {
+                        BackgroundColor = Color.RoyalBlue,
+                        MessageTextColor = Color.White,
+                        TintColor = Color.White,
+                        CornerRadius = 15
+                    };
+                    
+                }
+                return _materialLoadingDialogConfiguration;
+            }
+        }
+
+
         private static MaterialSnackbarConfiguration _materialSnackbarConfiguration;
         
         public static MaterialSnackbarConfiguration MaterialSnackbarConfiguration

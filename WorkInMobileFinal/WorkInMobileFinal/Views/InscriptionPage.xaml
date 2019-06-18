@@ -1,121 +1,150 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundColor="#e9ecf7"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="businesshandshake.jpg"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="WorkInMobileFinal.Views.InscriptionPage">
     <ContentPage.Content>
-        <ScrollView>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <StackLayout
-            Margin="20,0"
-            >
-                    <Grid HorizontalOptions="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Frame
-                            BackgroundColor="BlueViolet"
-                            Margin="0,20,0,0"
-                            Padding="5,0"
-                            VerticalOptions="Start"
-                            >
-                            <Label 
+        <Grid>
+            <Grid
+                Opacity="0.5"
+                BackgroundColor="#e9ecf7"
+                >
+                
+            </Grid>
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout
+                    Spacing="0"
+                    Margin="10,0"
+                    >
+                        <Grid HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Frame
+                                BackgroundColor="BlueViolet"
+                                Margin="0,20,0,0"
+                                Padding="5,0"
+                                VerticalOptions="Start"
+                                >
+                                <Label 
                                 TextColor="White"
                                 FontSize="35"
                                 Text="Work"
                                 FontAttributes="Bold"
                                 />
-                        </Frame>
-                        <Frame
-                            Grid.Column="1"
-                            BackgroundColor="RoyalBlue"
-                            Margin="0,20,0,0"
-                            Padding="5,0"
-                            VerticalOptions="Start"
-                            >
-                            <Label 
+                            </Frame>
+                            <Frame
+                                Grid.Column="1"
+                                BackgroundColor="RoyalBlue"
+                                Margin="0,20,0,0"
+                                Padding="5,0"
+                                VerticalOptions="Start"
+                                >
+                                <Label 
                                 TextColor="White"
                                 FontSize="35"
                                 Text="In"
                                 FontAttributes="Bold"
                             />
-                        </Frame>
-                    </Grid>
+                            </Frame>
+                        </Grid>
 
-                    <Label 
-                        Text="Inscrpition"
-                        TextColor="#4d38c4"
-                        Margin="0,0,0,100"
-                        HorizontalOptions="Center"
-                        FontSize="20"
-                        FontAttributes="Bold"
+                        <Label 
+                            Text="Inscription"
+                            TextColor="#4d38c4"
+                            FontFamily="TypeType - TT Norms Medium.ttf#TypeType - TT Norms Medium"
+                            Margin="0,0,0,50"
+                            HorizontalOptions="Center"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            />
+                        <materialDesign:MaterialTextField
+                            InputType="Email"
+                            Placeholder="Email"
+                            TintColor="RoyalBlue"
+                            PlaceholderColor="#444444"
+                            TextColor="#333333"
+                            UnderlineColor="RoyalBlue"
+                            />
+                        <materialDesign:MaterialTextField
+                            PlaceholderColor="#444444"
+                            TintColor="RoyalBlue"
+                            TextColor="#333333"
+                            UnderlineColor="RoyalBlue"
+                            InputType="Password"
+                            Placeholder="Mot de passe"
                         />
-                    <Entry
-                        Keyboard="Email"
-                        Placeholder="Email"
-                        PlaceholderColor="#88a2ee"
-                        TextColor="RoyalBlue"
+                        <materialDesign:MaterialTextField
+                            PlaceholderColor="#444444"
+                            TintColor="RoyalBlue"
+                            TextColor="#333333"
+                            UnderlineColor="RoyalBlue"
+                            Placeholder="Confirmer mot de passe"
+                            />
+                        <materialDesign:MaterialButton
+                            ButtonType="Outlined"
+                            CornerRadius="5"
+                            PressedBackgroundColor="#98a4c9"
+                            Text="Inscription"
+                            TextColor="RoyalBlue"
+                            BorderWidth="1"
+                            BorderColor="RoyalBlue"
+                            FontFamily="TypeType - TT Norms Medium.ttf#TypeType - TT Norms Medium"
+                            Padding="20,0"
+                            Command="{Binding NewUserCommand}"
+                            FontSize="16"
+                            AllCaps="False"
+                            HeightRequest="40"
+                            HorizontalOptions="End"
                         />
-                    <Entry
-                        PlaceholderColor="#88a2ee"
-                        TextColor="RoyalBlue"
-                        IsPassword="True"
-                        Placeholder="Mot de passe"
-                    />
-                    <Entry
-                        PlaceholderColor="#88a2ee"
-                        TextColor="RoyalBlue"
-                        IsPassword="True"
-                        Placeholder="Confirmer mot de passe"
+                        <BoxView
+                            Margin="0,20"
+                            HeightRequest="1"
+                            BackgroundColor="#aaaaaa"
                         />
-                    <Button
-                        CornerRadius="5"
-                        Text="Inscription"
-                        BackgroundColor="RoyalBlue"
-                        Padding="10,0"
-                        HeightRequest="40"
-                        HorizontalOptions="End"
-                        />
-                    <BoxView
-                        Margin="0,20"
-                        HeightRequest="1"
-                        BackgroundColor="#aaaaaa"
-                        />
-                    <Label
-                        HorizontalOptions="Center"
+                        <Label
+                            HorizontalOptions="Center"
+                            FontFamily="TypeType - TT Norms Medium.ttf#TypeType - TT Norms Medium"
+                            Margin="0,20"
                         >
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span 
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span 
                                     Text="Vous avez déjà un compte? "
                                     TextColor="#0d1324"
                                   />
-                                <Span Text="Conectez-vous"
-                                  FontAttributes="Bold"
-                                  TextColor="RoyalBlue"
-                                  />
-                            </FormattedString>
-                        </Label.FormattedText>
+                                    <Span Text="Connectez-vous"
+                                      FontAttributes="Bold"
+                                      TextColor="RoyalBlue"
+                                      />
+                                </FormattedString>
+                            </Label.FormattedText>
 
-                    </Label>
-                </StackLayout>
-                <Frame
+                        </Label>
+                    </StackLayout>
+                    <Frame
                     BackgroundColor="#aebbe2"
                     CornerRadius="0"
                     Grid.Row="1"
                     >
-                    <Label
+                        <Label
                         TextColor="#0d1324"
+                        FontAttributes="Bold"
+                        FontFamily="TypeType - TT Norms Medium.ttf#TypeType - TT Norms Medium"
                         Text="Work in 2019 - Tout droits réservé"
                         HorizontalOptions="Center"
                         />
-                </Frame>
-            </Grid>
-        </ScrollView>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

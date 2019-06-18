@@ -27,5 +27,10 @@ namespace WorkInMobileFinal.Views
         {
             await Navigation.PushAsync(new MessageriePage());
         }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ParametrePage());
+        }
     }
 }

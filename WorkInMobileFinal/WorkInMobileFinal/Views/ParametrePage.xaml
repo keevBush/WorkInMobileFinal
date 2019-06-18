@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkInMobileFinal.Views.ParametrePage"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <materialDesign:MaterialCard
+                
+                >
+                <Label
+                    Text="ok"
+                    />
+            </materialDesign:MaterialCard>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
