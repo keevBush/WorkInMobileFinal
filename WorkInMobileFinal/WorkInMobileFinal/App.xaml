@@ -1,8 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="WorkInMobileFinal.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style x:Key="btnStyle" TargetType="materialDesign:MaterialButton">
+                <Setter Property="FontFamily" Value="ProductSans-Medium.ttf#ProductSans-Medium"/>
+            </Style>
+            <Style x:Key="lblStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="ProductSans-Medium.ttf#ProductSans-Medium"/>
+            </Style>
+            <Style x:Key="lblItalicStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="ProductSans-Regular-Italic.ttf#ProductSans-Regular-Italic"/>
+            </Style>
+            <Style x:Key="entryStyle" TargetType="materialDesign:MaterialTextField">
+                <Setter Property="TextFontFamily" Value="ProductSans-Medium.ttf#ProductSans-Regular"/>
+                <Setter Property="PlaceholderFontFamily" Value="ProductSans-Medium.ttf#ProductSans-Regular"/>
+            </Style>
+            <Style x:Key="editorStyle" TargetType="Editor">
+                <Setter Property="FontFamily" Value="ProductSans-Medium.ttf#ProductSans-Regular"/>
+            </Style>
+            <Style x:Key="titleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="ProductSans-Bold.ttf#ProductSans-Bold"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

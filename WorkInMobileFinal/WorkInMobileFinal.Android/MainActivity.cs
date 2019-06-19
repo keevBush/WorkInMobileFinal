@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Support.Design.Widget;
 
 namespace WorkInMobileFinal.Droid
 {
@@ -14,15 +15,16 @@ namespace WorkInMobileFinal.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+         
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            XF.Material.Droid.Material.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this,savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            XF.Material.Droid.Material.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

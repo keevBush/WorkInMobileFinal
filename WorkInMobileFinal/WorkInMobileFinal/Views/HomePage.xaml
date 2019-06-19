@@ -8,10 +8,7 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             xmlns:views="clr-namespace:WorkInMobileFinal.Views"
             CurrentPageChanged="TabbedPage_CurrentPageChanged"
-            BarBackgroundColor="RoyalBlue"
-            BarTextColor="White"
-            SelectedTabColor="White"
-            UnselectedTabColor="#d1d6e4"
+            SelectedTabColor="RoyalBlue"
             >
     <NavigationPage.TitleView>
         <Grid>
@@ -22,8 +19,8 @@
             </Grid.ColumnDefinitions>
             <Label
                 FontSize="Medium"
-                FontAttributes="Bold"
                 x:Name="title"
+                Style="{StaticResource lblStyle}"
                 VerticalOptions="Center"
                 TextColor="White"
                 />
@@ -57,7 +54,7 @@
     </NavigationPage.TitleView>
    
   <!--Pages can be added as references or inline-->
-    <views:ActivitePage IconImageSource="icons8_Activity_Feed_64px_1.png" Title="Activités" />
+    <views:ActivitePage IconImageSource="icons8_Activity_Feed_64px_1.png" Title="Activités"/>
     <views:NotificationsPage IconImageSource="icons8_Notification_50px_1.png" Title="Notifications" />
     <ContentPage IconImageSource="icons8_Male_User_52px_1.png" Title="Profil" />
 </TabbedPage>

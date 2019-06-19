@@ -28,6 +28,7 @@
                 Text="Nom entreprise"
                 FontAttributes="Bold"
                 FontSize="Medium"
+                Style="{StaticResource titleStyle}"
                 TextColor="White"
                 Opacity="0.85"
                 Grid.Column="1"
@@ -69,19 +70,23 @@
                             BackgroundColor="RoyalBlue"
                             HorizontalOptions="End"
                             Elevation="0"
+                            IsClickable="True"
                             Padding="10"
-                            CornerRadius="10"
+                            CornerRadius="18"
                             >
                             <Label
                                 TextColor="White"
-                                Text="Message"
+                                MaxLines="1"
+                                Text="Lobhdc dsbjchds sdbvjfskz vjbskzjbvf zbvjkfzb casjkjcbad cjdbk\j djsb\kj"
+                                Style="{StaticResource lblStyle}"
                                 Opacity="0.8"
                                 FontSize="Medium"
                             />
                         </materialDesign:MaterialCard>
                         <Label
                             Grid.Row="1"
-                            Text="Date"
+                            Text="Il ya 15 min"
+                            Style="{StaticResource lblItalicStyle}"
                             TextColor="Gray"
                             Opacity="0.7"
                             FontAttributes="Italic"
@@ -100,9 +105,10 @@
                             Elevation="0"
                             HorizontalOptions="Start"
                             Padding="10"
-                            CornerRadius="10"
+                            CornerRadius="18"
                             >
                             <Label
+                                Style="{StaticResource lblStyle}"
                                 TextColor="#777777"
                                 Text="Message"
                                 FontSize="Medium"
@@ -110,7 +116,9 @@
                         </materialDesign:MaterialCard>
                         <Label
                             Grid.Row="1"
-                            Text="Date"
+                            Text="Il y a 5 min"
+                            FontSize="Small"
+                            Style="{StaticResource lblItalicStyle}"
                             TextColor="Gray"
                             Opacity="0.7"
                             FontAttributes="Italic"
@@ -138,7 +146,9 @@
                         VerticalOptions="FillAndExpand"
                         AutoSize="TextChanges"
                         MaxLength="600"
-                        Margin="3"
+                        Margin="13,3,3,3"
+                        Style="{StaticResource editorStyle}"
+                        PlaceholderColor="Gray"
                         FontSize="15"
                         Placeholder="Entrer votre message ..."
                         />

@@ -17,5 +17,10 @@ namespace WorkInMobileFinal.Views
             InitializeComponent();
             BindingContext = new ViewModels.InscriptionPageViewModel(Navigation);
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

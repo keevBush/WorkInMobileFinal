@@ -5,15 +5,143 @@
              xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              
              >
+    <NavigationPage.TitleView>
+        <Label
+            VerticalOptions="Center"
+            Text="Paramètres"
+            TextColor="White"
+            FontSize="Medium"
+            Style="{StaticResource lblStyle}"
+            />
+    </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout
+            Spacing="0"
+            >
+            
             <materialDesign:MaterialCard
-                
+                IsClickable="True"
+                Padding="2"
+                Elevation="0"
+                CornerRadius="0"
+                HeightRequest="60"
                 >
-                <Label
-                    Text="ok"
-                    />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="icons8_Male_User_64px.png"
+                        WidthRequest="30"
+                        VerticalOptions="Center"
+                        Opacity="0.7"
+                        Margin="20,0"
+                        />
+                    <Label
+                        Grid.Column="1"
+                        Text="Mon profil"
+                        Opacity="0.8"
+                        VerticalOptions="Center"
+                        FontSize="16"
+                        Style="{StaticResource lblStyle}"
+                        />
+                </Grid>
             </materialDesign:MaterialCard>
+
+
+            <materialDesign:MaterialCard
+                IsClickable="True"
+                Padding="2"
+                Elevation="0"
+                CornerRadius="0"
+                HeightRequest="60"
+                >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="icons8_Security_Lock_64px_4.png"
+                        WidthRequest="30"
+                        VerticalOptions="Center"
+                        Opacity="0.7"
+                        Margin="20,0"
+                        />
+                    <Label
+                        Grid.Column="1"
+                        Text="Sécurité"
+                        Opacity="0.8"
+                        VerticalOptions="Center"
+                        FontSize="16"
+                        Style="{StaticResource lblStyle}"
+                        />
+                </Grid>
+            </materialDesign:MaterialCard>
+            <materialDesign:MaterialCard
+                IsClickable="True"
+                Padding="2"
+                Elevation="0"
+                HeightRequest="60"
+                >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="icons8_Lock_64px.png"
+                        VerticalOptions="Center"
+                        WidthRequest="30"
+                        Opacity="0.7"
+                        Margin="20,0"
+                        />
+                    <Label
+                        Grid.Column="1"
+                        Opacity="0.8"
+                        Text="Confidentialité"
+                        VerticalOptions="Center"
+                        FontSize="16"
+                        Style="{StaticResource lblStyle}"
+                        />
+                </Grid>
+            </materialDesign:MaterialCard>
+            <materialDesign:MaterialCard
+                IsClickable="True"
+                Padding="2"
+                Elevation="0"
+                VerticalOptions="EndAndExpand"
+                HeightRequest="60"
+                >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="icons8_Sign_Out_64px.png"
+                        WidthRequest="30"
+                        VerticalOptions="Center"
+                        Opacity="0.7"
+                        Margin="20,0"
+                        />
+                    <Label
+                        Grid.Column="1"
+                        Text="Déconnexion"
+                        VerticalOptions="Center"
+                        FontSize="16"
+                        Opacity="0.7"
+                        TextColor="Red"
+                        Style="{StaticResource lblStyle}"
+                        />
+                </Grid>
+            </materialDesign:MaterialCard>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

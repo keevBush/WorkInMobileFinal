@@ -59,12 +59,13 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                                 <Label
+                                    Style="{StaticResource titleStyle}"
                                     Text="Message"
-                                    TextColor="Black"
-                                    FontAttributes="Bold"
                                     />
                                 <Label
                                     Grid.Row="1"
+                                    Opacity="0.7"
+                                    Style="{StaticResource lblStyle}"
                                     Text="ok"
                                     />
                                 <Label

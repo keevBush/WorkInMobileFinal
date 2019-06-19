@@ -3,8 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WorkInMobileFinal"
              BackgroundColor="#e9ecf7"
+             BackgroundImageSource="businesshandshake.jpg"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:materialDesign ="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="WorkInMobileFinal.MainPage">
-    <ScrollView>
+    <Grid>
+        <Grid BackgroundColor="RoyalBlue" Opacity="0.4">
+
+        </Grid>
+        <ScrollView>
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -50,44 +57,55 @@
             <Label 
                 Text="Connexion"
                 TextColor="#4d38c4"
-                Margin="0,0,0,100"
+                Style="{StaticResource titleStyle}"
+                Margin="0,0,0,50"
                 HorizontalOptions="Center"
                 FontSize="20"
-                FontAttributes="Bold"
                 />
-            <Entry
-                Keyboard="Email"
+            <materialDesign:MaterialTextField
+                InputType="Email"
+                Opacity="0.7"
+                ReturnType="Next"
+                Style="{StaticResource entryStyle}"
                 Placeholder="Email"
                 PlaceholderColor="#88a2ee"
-                TextColor="RoyalBlue"
+                TextColor="#333333"
             />
-            <Entry
+            <materialDesign:MaterialTextField
                 PlaceholderColor="#88a2ee"
-                TextColor="RoyalBlue"
-                IsPassword="True"
+                TextColor="#333333"
+                Opacity="0.7"
+                Style="{StaticResource entryStyle}"
+                ReturnType="Default"
+                InputType="Password"
                 Placeholder="Mot de passe"
                 />
-            <Button
+            <materialDesign:MaterialButton
                 CornerRadius="5"
+                Style="{StaticResource btnStyle}"
+                AllCaps="False"
                 Text="Connexion"
+                FontSize="Medium"
+                ButtonType="Flat"
                 BackgroundColor="RoyalBlue"
+                TextColor="White"
                 Padding="10,0"
                 HeightRequest="40"
                 HorizontalOptions="End"
                 />
                 <Label
-            
-            Text="Mot de passe oublié ?"
-            FontAttributes="Bold"
-            HorizontalOptions="End"
-            TextColor="RoyalBlue"
-            Margin="0,15,0,0"
-            />
-        <BoxView
-            Margin="0,20"
-            HeightRequest="1"
-            BackgroundColor="#aaaaaa"
-            />
+                    Text="Mot de passe oublié ?"
+                    FontAttributes="Bold"
+                    Style="{StaticResource lblStyle}"
+                    HorizontalOptions="End"
+                    TextColor="RoyalBlue"
+                    Margin="0,15,0,0"
+                />
+                <BoxView
+                    Margin="0,20"
+                    HeightRequest="1"
+                    BackgroundColor="#aaaaaa"
+                />
         <Label
             HorizontalOptions="Center"
             >
@@ -95,22 +113,30 @@
                 <FormattedString>
                     <Span Text="Vous n'avez pas de compte? "
                           TextColor="#0d1324"
+                          Style="{StaticResource lblStyle}"
+                          
                           />
-                    <Span Text="Créer en un"
-                          FontAttributes="Bold"
-                          TextColor="RoyalBlue"
-                          />
-                </FormattedString>
+                                <Span Text="Créer en un"
+                                  Style="{StaticResource titleStyle}"
+                                  TextColor="RoyalBlue"
+                                >
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Span.GestureRecognizers>    
+                                </Span>
+                            </FormattedString>
             </Label.FormattedText>
             
         </Label>
     </StackLayout>
         <Frame
             BackgroundColor="#aebbe2"
+            Opacity="0.6"
             CornerRadius="0"
             Grid.Row="1"
             >
             <Label
+                Style="{StaticResource lblStyle}"
                 TextColor="#0d1324"
                 Text="Work in 2019 - Tout droits réservé"
                 HorizontalOptions="Center"
@@ -118,5 +144,5 @@
         </Frame>
     </Grid>
     </ScrollView>
-
+    </Grid>
 </ContentPage>

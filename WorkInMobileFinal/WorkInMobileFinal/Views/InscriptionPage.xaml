@@ -2,16 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
-             BackgroundImageSource="businesshandshake.jpg"
+             BackgroundImage="businesshandshake.jpg"
              xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="WorkInMobileFinal.Views.InscriptionPage">
     <ContentPage.Content>
         <Grid>
-            <Grid
-                Opacity="0.5"
-                BackgroundColor="#e9ecf7"
-                >
-                
+            <Grid BackgroundColor="RoyalBlue" Opacity="0.4">
+
             </Grid>
             <ScrollView>
                 <Grid>
@@ -20,9 +17,8 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <StackLayout
-                    Spacing="0"
-                    Margin="10,0"
-                    >
+                        Margin="20,0"
+                        >
                         <Grid HorizontalOptions="Center">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"/>
@@ -35,10 +31,10 @@
                                 VerticalOptions="Start"
                                 >
                                 <Label 
-                                TextColor="White"
-                                FontSize="35"
-                                Text="Work"
-                                FontAttributes="Bold"
+                                    TextColor="White"
+                                    FontSize="35"
+                                    Text="Work"
+                                    FontAttributes="Bold"
                                 />
                             </Frame>
                             <Frame
@@ -49,99 +45,103 @@
                                 VerticalOptions="Start"
                                 >
                                 <Label 
-                                TextColor="White"
-                                FontSize="35"
-                                Text="In"
-                                FontAttributes="Bold"
-                            />
+                                    TextColor="White"
+                                    FontSize="35"
+                                    Text="In"
+                                    FontAttributes="Bold"
+                                 />
                             </Frame>
                         </Grid>
 
                         <Label 
-                            Text="Inscription"
+                            Text="Connexion"
                             TextColor="#4d38c4"
-                            FontFamily="TypeType - TT Norms Medium.ttf#TypeType - TT Norms Medium"
+                            Style="{StaticResource titleStyle}"
                             Margin="0,0,0,50"
                             HorizontalOptions="Center"
                             FontSize="20"
-                            FontAttributes="Bold"
                             />
                         <materialDesign:MaterialTextField
                             InputType="Email"
+                            Opacity="0.7"
+                            ReturnType="Next"
+                            Style="{StaticResource entryStyle}"
                             Placeholder="Email"
-                            TintColor="RoyalBlue"
-                            PlaceholderColor="#444444"
+                            PlaceholderColor="#88a2ee"
                             TextColor="#333333"
-                            UnderlineColor="RoyalBlue"
                             />
                         <materialDesign:MaterialTextField
-                            PlaceholderColor="#444444"
-                            TintColor="RoyalBlue"
+                            PlaceholderColor="#88a2ee"
                             TextColor="#333333"
-                            UnderlineColor="RoyalBlue"
+                            Opacity="0.7"
+                            Style="{StaticResource entryStyle}"
+                            ReturnType="Default"
                             InputType="Password"
                             Placeholder="Mot de passe"
-                        />
+                            />
                         <materialDesign:MaterialTextField
-                            PlaceholderColor="#444444"
-                            TintColor="RoyalBlue"
+                            PlaceholderColor="#88a2ee"
                             TextColor="#333333"
-                            UnderlineColor="RoyalBlue"
-                            Placeholder="Confirmer mot de passe"
+                            Opacity="0.7"
+                            Style="{StaticResource entryStyle}"
+                            ReturnType="Default"
+                            InputType="Password"
+                            Placeholder="Confirmer le mot de passe"
                             />
                         <materialDesign:MaterialButton
-                            ButtonType="Outlined"
                             CornerRadius="5"
-                            PressedBackgroundColor="#98a4c9"
-                            Text="Inscription"
-                            TextColor="RoyalBlue"
-                            BorderWidth="1"
-                            BorderColor="RoyalBlue"
-                            FontFamily="TypeType - TT Norms Medium.ttf#TypeType - TT Norms Medium"
-                            Padding="20,0"
-                            Command="{Binding NewUserCommand}"
-                            FontSize="16"
+                            Style="{StaticResource btnStyle}"
                             AllCaps="False"
-                            HeightRequest="40"
+                            Text="Inscription"
+                            FontSize="Medium"
+                            Command="{Binding NewUserCommand}"
+                            ButtonType="Flat"
+                            BackgroundColor="RoyalBlue"
+                            TextColor="White"
+                            Padding="10,0"
+                            HeightRequest="50"
                             HorizontalOptions="End"
-                        />
+                            />
+                        
                         <BoxView
                             Margin="0,20"
                             HeightRequest="1"
                             BackgroundColor="#aaaaaa"
-                        />
+                            />
                         <Label
                             HorizontalOptions="Center"
-                            FontFamily="TypeType - TT Norms Medium.ttf#TypeType - TT Norms Medium"
-                            Margin="0,20"
-                        >
+                            >
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span 
-                                    Text="Vous avez déjà un compte? "
-                                    TextColor="#0d1324"
-                                  />
+                                    <Span Text="Vous avez déjà un compte? "
+                                        TextColor="#0d1324"
+                                        Style="{StaticResource lblStyle}"
+                          
+                                        />
                                     <Span Text="Connectez-vous"
-                                      FontAttributes="Bold"
-                                      TextColor="RoyalBlue"
-                                      />
+                                          Style="{StaticResource titleStyle}"
+                                          TextColor="RoyalBlue"
+                                        >
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
                                 </FormattedString>
                             </Label.FormattedText>
-
                         </Label>
                     </StackLayout>
                     <Frame
-                    BackgroundColor="#aebbe2"
-                    CornerRadius="0"
-                    Grid.Row="1"
-                    >
+                        BackgroundColor="#aebbe2"
+                        Opacity="0.6"
+                        CornerRadius="0"
+                        Grid.Row="1"
+                        >
                         <Label
-                        TextColor="#0d1324"
-                        FontAttributes="Bold"
-                        FontFamily="TypeType - TT Norms Medium.ttf#TypeType - TT Norms Medium"
-                        Text="Work in 2019 - Tout droits réservé"
-                        HorizontalOptions="Center"
-                        />
+                            Style="{StaticResource lblStyle}"
+                            TextColor="#0d1324"
+                            Text="Work in 2019 - Tout droits réservé"
+                            HorizontalOptions="Center"
+                            />
                     </Frame>
                 </Grid>
             </ScrollView>
