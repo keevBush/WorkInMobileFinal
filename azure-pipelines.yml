@@ -22,7 +22,7 @@ steps:
     restoreSolution: '**/*.sln'
 - task: XamariniOS@2
   inputs:
-    solutionFile: '**/*.sln'
+    solutionFile: '**/*iOS*.sln'
     configuration: 'Release'
     packageApp: true
     buildForSimulator: true
