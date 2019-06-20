@@ -1,11 +1,5 @@
-# Xamarin.Android
-- task: XamariniOS@2
-  inputs:
-    solutionFile: '**/*.sln'
-    configuration: 'Release'
-    packageApp: true
-    buildForSimulator: true
-    runNugetRestore: false
+# Xamarin.IOS
+
 # Build a Xamarin.Android project.
 # Add steps that test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
@@ -26,7 +20,13 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '**/*.sln'
-
+- task: XamariniOS@2
+  inputs:
+    solutionFile: '**/*.sln'
+    configuration: 'Release'
+    packageApp: true
+    buildForSimulator: true
+    runNugetRestore: false
 - task: XamarinAndroid@1
   inputs:
     projectFile: '**/*Android*.csproj'
