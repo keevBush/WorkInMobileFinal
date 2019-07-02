@@ -84,6 +84,7 @@
             <materialDesign:MaterialCard
                 IsClickable="True"
                 Padding="2"
+                CornerRadius="0"
                 Elevation="0"
                 HeightRequest="60"
                 >
@@ -113,6 +114,38 @@
             <materialDesign:MaterialCard
                 IsClickable="True"
                 Padding="2"
+                Elevation="0"
+                CornerRadius="0"
+                HeightRequest="60"
+                >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="icons8_Info_64px.png"
+                        WidthRequest="30"
+                        VerticalOptions="Center"
+                        Opacity="0.7"
+                        Margin="20,0"
+                        />
+                    <Label
+                        Grid.Column="1"
+                        Text="Informations"
+                        Opacity="0.8"
+                        VerticalOptions="Center"
+                        FontSize="16"
+                        Style="{StaticResource lblStyle}"
+                        />
+                </Grid>
+            </materialDesign:MaterialCard>
+
+            <materialDesign:MaterialCard
+                IsClickable="True"
+                Padding="2"
+                CornerRadius="0"
                 Elevation="0"
                 VerticalOptions="EndAndExpand"
                 HeightRequest="60"

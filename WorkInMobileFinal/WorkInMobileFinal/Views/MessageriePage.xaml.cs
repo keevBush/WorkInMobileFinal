@@ -19,23 +19,9 @@ namespace WorkInMobileFinal.Views
         public MessageriePage()
         {
             InitializeComponent();
-            lst.ItemsSource = new List<string> { "", "", "", "", "", "" };
+            BindingContext = new ViewModels.MessagerieViewModel();
            // LoadData();
             
-        }
-
-        private async void LoadData()
-        {
-            await MaterialDialog.Instance.AlertAsync(message: "This is an alert dialog",
-                                    title: "Alert Dialog",
-                                    acknowledgementText: "Got It");
-        }
-
-       
-
-        private async void ViewCell_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ConversationPage());
         }
     }
 }

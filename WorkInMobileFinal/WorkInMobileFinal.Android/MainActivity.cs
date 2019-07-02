@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Android.Support.Design.Widget;
+using Xamarin.Forms;
 
 namespace WorkInMobileFinal.Droid
 {
@@ -23,6 +24,7 @@ namespace WorkInMobileFinal.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this,savedInstanceState);
+            Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
             LoadApplication(new App());

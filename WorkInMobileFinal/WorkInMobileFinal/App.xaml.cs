@@ -10,7 +10,7 @@ namespace WorkInMobileFinal
         {
             InitializeComponent();
             XF.Material.Forms.Material.Init(this);
-            MainPage = new NavigationPage (new MainPage());
+            MainPage = new NavigationPage (new Views.SplashScreen());
         }
 
         protected override void OnStart()

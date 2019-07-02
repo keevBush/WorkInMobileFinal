@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Recherche"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             xmlns:customControls="clr-namespace:WorkInMobileFinal.CustomControls"
+             x:Class="WorkInMobileFinal.Views.RecherchePage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <materialDesign:MaterialCard
+                BackgroundColor="RoyalBlue"
+                CornerRadius="0"
+                Elevation="4"
+                >
+                <materialDesign:MaterialCard
+                    Padding="10,2,0,0"
+                    Elevation="5"
+                    BackgroundColor="White"
+                    >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <customControls:CustomEditor
+                            Style="{StaticResource editorStyleMedium}"
+                            TextColor="#333333"
+                            Placeholder="Rechercher ..."
+                            />
+                        <materialDesign:MaterialIconButton
+                            VerticalOptions="Center"
+                            PressedBackgroundColor="Gray"
+                            CornerRadius="50"
+                            BackgroundColor="Transparent"
+                            Image="icons8_Sign_Out_64px.png"
+                            Grid.Column="1"/>
+                    </Grid>
+                </materialDesign:MaterialCard>
+            </materialDesign:MaterialCard>
+            <Grid
+                Grid.Row="1"
+                >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label
+                    Text="Propositions"
+                    TextColor="RoyalBlue"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    Style="{StaticResource titleStyle}"
+                    />
+                <BoxView
+                    Grid.Row="1"
+                    BackgroundColor="RoyalBlue"
+                    CornerRadius="0,0,10,10"
+                    WidthRequest="100"
+                    VerticalOptions="Start"
+                    HeightRequest="4"
+                    HorizontalOptions="Center"
+                    />
+                <Label
+                    Text="Entreprises"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    Style="{StaticResource titleStyle}"
+                    />
+                <BoxView
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    IsVisible="False"
+                    BackgroundColor="RoyalBlue"
+                    CornerRadius="0,0,10,10"
+                    WidthRequest="100"
+                    VerticalOptions="Start"
+                    HeightRequest="4"
+                    HorizontalOptions="Center"
+                    />
+            </Grid>
+            <CarouselView
+                Grid.Row="2"
+                >
+            </CarouselView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

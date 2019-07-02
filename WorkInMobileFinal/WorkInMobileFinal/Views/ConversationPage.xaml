@@ -79,13 +79,14 @@
                                 MaxLines="1"
                                 Text="Lobhdc dsbjchds sdbvjfskz vjbskzjbvf zbvjkfzb casjkjcbad cjdbk\j djsb\kj"
                                 Style="{StaticResource lblStyle}"
-                                Opacity="0.8"
+                                Opacity="0.9"
                                 FontSize="Medium"
                             />
                         </materialDesign:MaterialCard>
                         <Label
                             Grid.Row="1"
-                            Text="Il ya 15 min"
+                            Margin="0,0,10,0"
+                            Text="Il y a 15 min"
                             Style="{StaticResource lblItalicStyle}"
                             TextColor="Gray"
                             Opacity="0.7"
@@ -116,6 +117,7 @@
                         </materialDesign:MaterialCard>
                         <Label
                             Grid.Row="1"
+                            Margin="10,0,0,0"
                             Text="Il y a 5 min"
                             FontSize="Small"
                             Style="{StaticResource lblItalicStyle}"
@@ -146,11 +148,12 @@
                         VerticalOptions="FillAndExpand"
                         AutoSize="TextChanges"
                         MaxLength="600"
-                        Margin="13,3,3,3"
+                        Margin="13,3,3,-1"
+                        TextColor="#555555"
                         Style="{StaticResource editorStyle}"
-                        PlaceholderColor="Gray"
+                        PlaceholderColor="#999999"
                         FontSize="15"
-                        Placeholder="Entrer votre message ..."
+                        Placeholder="Entrez votre message ..."
                         />
                 </materialDesign:MaterialCard>
                 <ImageButton

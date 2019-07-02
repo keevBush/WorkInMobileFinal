@@ -8,7 +8,11 @@
             <Style x:Key="btnStyle" TargetType="materialDesign:MaterialButton">
                 <Setter Property="FontFamily" Value="ProductSans-Medium.ttf#ProductSans-Medium"/>
             </Style>
+            
             <Style x:Key="lblStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="ProductSans-Medium.ttf#ProductSans-Medium"/>
+            </Style>
+            <Style x:Key="spanStyle" TargetType="Span">
                 <Setter Property="FontFamily" Value="ProductSans-Medium.ttf#ProductSans-Medium"/>
             </Style>
             <Style x:Key="lblItalicStyle" TargetType="Label">
@@ -19,9 +23,15 @@
                 <Setter Property="PlaceholderFontFamily" Value="ProductSans-Medium.ttf#ProductSans-Regular"/>
             </Style>
             <Style x:Key="editorStyle" TargetType="Editor">
-                <Setter Property="FontFamily" Value="ProductSans-Medium.ttf#ProductSans-Regular"/>
+                <Setter Property="FontFamily" Value="ProductSans-Regular.ttf#ProductSans-Regular"/>
+            </Style>
+            <Style x:Key="editorStyleMedium" TargetType="Editor">
+                <Setter Property="FontFamily" Value="ProductSans-Medium.ttf#ProductSans-Medium"/>
             </Style>
             <Style x:Key="titleStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="ProductSans-Bold.ttf#ProductSans-Bold"/>
+            </Style>
+            <Style x:Key="spanBoldStyle" TargetType="Span">
                 <Setter Property="FontFamily" Value="ProductSans-Bold.ttf#ProductSans-Bold"/>
             </Style>
         </ResourceDictionary>

@@ -12,7 +12,7 @@ namespace WorkInMobileFinal.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : TabbedPage
     {
-        public HomePage()
+        public HomePage(Models.DemandeurIdentite currentUser)
         {
             InitializeComponent();
         }

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
              BackgroundImage="businesshandshake.jpg"
+             xmlns:trigger="clr-namespace:WorkInMobileFinal.Triggers"
              xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="WorkInMobileFinal.Views.InscriptionPage">
     <ContentPage.Content>
@@ -54,7 +55,7 @@
                         </Grid>
 
                         <Label 
-                            Text="Connexion"
+                            Text="Inscription"
                             TextColor="#4d38c4"
                             Style="{StaticResource titleStyle}"
                             Margin="0,0,0,50"
@@ -65,13 +66,22 @@
                             InputType="Email"
                             Opacity="0.7"
                             ReturnType="Next"
+                            HasError="{Binding IsError,Mode=TwoWay}"
+                            Text="{Binding DemandeurIdentite.Email,Mode=TwoWay}"
                             Style="{StaticResource entryStyle}"
                             Placeholder="Email"
                             PlaceholderColor="#88a2ee"
                             TextColor="#333333"
-                            />
+                            >
+                            <materialDesign:MaterialTextField.Triggers>
+                                <EventTrigger Event="TextChanged">
+                                    <trigger:EmailVerificationTrigger/>
+                                </EventTrigger>
+                            </materialDesign:MaterialTextField.Triggers>
+                        </materialDesign:MaterialTextField>
                         <materialDesign:MaterialTextField
                             PlaceholderColor="#88a2ee"
+                            Text="{Binding Pwd,Mode=TwoWay}"
                             TextColor="#333333"
                             Opacity="0.7"
                             Style="{StaticResource entryStyle}"
@@ -85,6 +95,7 @@
                             Opacity="0.7"
                             Style="{StaticResource entryStyle}"
                             ReturnType="Default"
+                            Text="{Binding PwdConfirm,Mode=TwoWay}"
                             InputType="Password"
                             Placeholder="Confirmer le mot de passe"
                             />

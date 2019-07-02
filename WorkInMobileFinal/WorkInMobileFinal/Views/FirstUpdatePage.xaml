@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:converter="clr-namespace:WorkInMobileFinal.Converters"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             x:Class="WorkInMobileFinal.Views.FirstUpdatePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:MaleGenderConverter x:Key="maleConverter"/>
+            <converter:FemalGenderConverter x:Key="femalConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Padding="20,0"
+                >
+                <Grid 
+                    HorizontalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame
+                        BackgroundColor="BlueViolet"
+                        Margin="0,20,0,0"
+                        Padding="5,0"
+                        VerticalOptions="Start"
+                        >
+                        <Label 
+                            TextColor="White"
+                            FontSize="35"
+                            Text="Work"
+                            FontAttributes="Bold"
+                            />
+                    </Frame>
+                    <Frame
+                        Grid.Column="1"
+                        BackgroundColor="RoyalBlue"
+                        Margin="0,20,0,0"
+                        Padding="5,0"
+                        VerticalOptions="Start"
+                        >
+                        <Label 
+                            TextColor="White"
+                            FontSize="35"
+                            Text="In"
+                            FontAttributes="Bold"
+                            />
+                    </Frame>
+                </Grid>
+
+                <Label
+                    FontSize="Medium"
+                    Style="{StaticResource lblStyle}"
+                    HorizontalOptions="Center"
+                    Margin="0,20"
+                    HorizontalTextAlignment="Center"
+                    Text="Veuillez remplir ces informations avant de continuer"
+                    />
+                <materialDesign:MaterialTextField
+                    Placeholder="Nom"
+                    />
+                <materialDesign:MaterialTextField
+                    Placeholder="Postnom"
+                    />
+                <materialDesign:MaterialTextField
+                    Placeholder="Prenom"
+                    />
+                <materialDesign:MaterialTextField
+                    Placeholder="Nom d'utilisateur"
+                    />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        VerticalOptions="Center"
+                        BindingContext="{x:Reference switch}"
+                        Text="Homme"
+                        TextColor="{Binding IsToggled,Converter={StaticResource maleConverter}}"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource lblStyle}"
+                        />
+                    <Switch
+                        Grid.Column="1"
+                        x:Name="switch"
+                        OnColor="RoyalBlue"
+                        IsToggled="False"
+                    />
+                    <Label
+                        Text="Femme"
+                        BindingContext="{x:Reference switch}"
+                        VerticalOptions="Center"
+                        TextColor="{Binding IsToggled,Converter={StaticResource femalConverter}}"
+                        Grid.Column="2"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource lblStyle}"
+                        />
+                </Grid>
+                
+                <materialDesign:MaterialTextField
+                    InputType="Text"
+                    />
+                <materialDesign:MaterialButton
+                    ButtonType="Text"
+                    Style="{StaticResource btnStyle}"
+                    Text="Sauvegarder"
+                    AllCaps="False"
+                    FontSize="13"
+                    />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

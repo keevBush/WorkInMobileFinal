@@ -15,52 +15,62 @@
         </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <ListView
-            x:Name="lst"
-            HasUnevenRows="True"
-            SelectionMode="None"
-            CachingStrategy="RecycleElement"
-            >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell
-                        Tapped="ViewCell_Tapped"
-                        >
-                        <Grid
-                            Margin="10,5"
+        <ScrollView>
+            
+        <StackLayout
+            Spacing="1">
+
+            <CollectionView
+                x:Name="lst"
+                ItemsSource="{Binding Discussions,Mode=TwoWay}"
+                >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:MaterialCard
+                            Padding="0"
+                            CornerRadius="0"
+                            Margin="0,0,0,0"
+                            IsClickable="True"
                             >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Frame
-                                Padding="0"
-                                VerticalOptions="Center"
-                                HorizontalOptions="Center"
-                                CornerRadius="50"
-                                WidthRequest="60"
-                                HeightRequest="60"
+                            
+                            <Grid
+                                Margin="10,5"
                                 >
-                                <Image
-                                    WidthRequest="50"
-                                    HeightRequest="50"
-                                    VerticalOptions="Fill"
-                                    HorizontalOptions="Fill"
-                                    Source="https://github.com/contrix09/XF-Material-Library/blob/master/images/xf.material_logo.png"
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Frame
+                                    Padding="0"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    CornerRadius="50"
+                                    WidthRequest="60"
+                                    HeightRequest="60"
+                                    >
+                                    <Image
+                                        WidthRequest="50"
+                                        HeightRequest="50"
+                                        VerticalOptions="Fill"
+                                        HorizontalOptions="Fill"
+                                        Source="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/ITunes_12.2_logo.png/768px-ITunes_12.2_logo.png"
                                     />
-                            </Frame>
+                                </Frame>
                             <Grid
                                 Grid.Column="1"
-                                >
+                                Margin="0,-4"
+                            >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="*"/>
-                                    <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                                 <Label
                                     Style="{StaticResource titleStyle}"
-                                    Text="Message"
+                                    FontSize="16"
+                                    Text="{Binding EmployeurIdentite.Nom}"
                                     />
                                 <Label
                                     Grid.Row="1"
@@ -75,22 +85,31 @@
                                     FontAttributes="Italic"
                                     HorizontalOptions="End"
                                     />
-                            </Grid>
-                            
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.Footer>
-                <Grid>
-                    <Label
-                        Text="Nombre discussions"
-                        FontAttributes="Bold"
-                        HorizontalOptions="Center"
-                        Margin="0,16"
-                        />
-                </Grid>
-            </ListView.Footer>
-        </ListView>
+                                        <BoxView
+                                            Grid.Row="4"
+                                            Opacity="0.6"
+                                            HeightRequest="0.5"
+                                            BackgroundColor="Gray"
+                                            />
+                                    </Grid>
+                    </Grid>
+                        </materialDesign:MaterialCard>
+                    </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+                <Label
+                    Margin="0,0,0,20"
+                    Style="{StaticResource lblStyle}"
+                    HorizontalOptions="Center"
+                >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding Discussions.Count}"/>
+                            <Span Text=" Discussions"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

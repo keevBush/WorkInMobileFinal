@@ -39,9 +39,10 @@ namespace WorkInMobileFinal.Configurations
                 {
                     _materialSnackbarConfiguration = new MaterialSnackbarConfiguration
                     {
-                        BackgroundColor = Color.FromHex("#020b24"),
-                        MessageTextColor = Color.FromHex("#d0d7e9"),
-                        TintColor = Color.FromHex("#8a2be2")
+                        BackgroundColor = Color.RoyalBlue,
+                        MessageTextColor = Color.White,
+                        TintColor = Color.White,
+                        CornerRadius = 15
                     };
                 }
                 return _materialSnackbarConfiguration;

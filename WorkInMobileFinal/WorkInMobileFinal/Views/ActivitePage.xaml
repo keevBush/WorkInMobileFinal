@@ -9,65 +9,20 @@
             <materialDesign:MaterialCard
                 BackgroundColor="White"
                 Margin="8"
-                Padding="5"
+                Elevation="4"
+                Padding="15,7"
                 >
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Frame
-                            BackgroundColor="Blue"
-                            WidthRequest="30"
-                            CornerRadius="50"
-                            HeightRequest="30"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Center"
-                            >
-                            
-                        </Frame>
-                        <Grid
-                            Grid.Column="1"
-                            VerticalOptions="Center"
-                            RowSpacing="5"
-                            >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <Label
-                                TextColor="Black"
-                                Text="Nom entreprise"
-                                FontAttributes="Bold"
-                                FontSize="Medium"
-                                Opacity="0.8"
-                                />
-                            <Label
-                                Grid.Row="1"
-                                TextColor="Black"
-                                FontAttributes="Italic"
-                                FontSize="Small"
-                                Opacity="0.8"
-                                >
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="Posté "/>
-                                        <Span Text="le 15/01/2013"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                        </Grid>
-                    </Grid>
                     <Grid
-                        Grid.Row="1"
+                        Grid.Row="0"
                         >
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
@@ -77,39 +32,104 @@
                             TextColor="Black"
                             FontAttributes="Bold"
                             FontSize="Large"
-                            Opacity="0.8"
+                            Opacity="0.7"
                             Text="Nom post"
+                            Style="{StaticResource titleStyle}"
                             />
                         <Label
                             TextColor="Black"
-                            FontSize="Small"
+                            FontSize="Medium"
                             Grid.Row="1"
-                            Opacity="0.8"
+                            Style="{StaticResource lblStyle}"
+                            Opacity="0.6"
+                            Margin="0,0,0,20"
                             Text="Description post...."
                             />
+                        <BoxView
+                            BackgroundColor="Gray"
+                            Grid.Row="2"
+                            Opacity="0.5"
+                            CornerRadius="20"
+                            HeightRequest="1"
+                            />
                         <Label
                             TextColor="Black"
                             FontSize="Small"
-                            Grid.Row="2"
+                            Grid.Row="3"
+                            Style="{StaticResource lblStyle}"
                             Opacity="0.8"
                             >
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Skills recherché: "/>
-                                    <Span Text="Liste de skills demandé pour le post"/>
+                                    <Span TextColor="#555555"
+                                          Text="Skills recherché: " 
+                                          />
+                                    <Span Text=" "/>
+                                    <Span TextColor="RoyalBlue" Text="UI,UX ASP.NET"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
+                        <Grid
+                            Grid.Row="4"
+                            >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Frame
+                                CornerRadius="40"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="#777777"
+                                >
+                                <Image
+                                    Source="https://disruptiveludens.files.wordpress.com/2016/07/playstation-logo.png"
+                                    WidthRequest="50"
+                                    HeightRequest="50"
+                                    Aspect="Fill"
+                                    />
+                            </Frame>
+                            <Grid
+                                Grid.Column="1"
+                                RowSpacing="0"
+                                VerticalOptions="CenterAndExpand"
+                                >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label
+                                    >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Style="{StaticResource spanStyle}" Text="Par  "/>
+                                            <Span TextColor="#333333" Style="{StaticResource spanBoldStyle}" Text="PlayStation Inc."/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    Grid.Row="1"
+                                    Style="{StaticResource lblItalicStyle}"
+                                    >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Posté "/>
+                                            <Span Text="il y a 5 min"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                        </Grid>
                         <materialDesign:MaterialButton
-                            ButtonType="Outlined"
+                            ButtonType="Text"
                             BorderColor="RoyalBlue"
-                            Padding="20,0"
+                            AllCaps="False"
                             Command="{Binding ParticiperCommand}"
                             PressedBackgroundColor="#a2b4eb"
                             TextColor="RoyalBlue"
                             Text="J'y participe"
                             HorizontalOptions="End"
-                            Grid.Row="3"
+                            Grid.Row="5"
                             />
                     </Grid>
                 </Grid>

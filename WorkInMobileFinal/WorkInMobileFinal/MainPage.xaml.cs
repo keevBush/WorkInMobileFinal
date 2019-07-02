@@ -12,6 +12,7 @@ namespace WorkInMobileFinal
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new ViewModels.MainPageViewModel(Navigation);
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
