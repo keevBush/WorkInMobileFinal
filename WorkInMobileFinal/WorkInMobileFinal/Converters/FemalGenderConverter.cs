@@ -13,7 +13,7 @@ namespace WorkInMobileFinal.Converters
             if ((bool)value == false)
                 return Color.FromHex("#555555");
             else
-                return Color.RoyalBlue;
+                return Color.BlueViolet;
         }
 
             public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

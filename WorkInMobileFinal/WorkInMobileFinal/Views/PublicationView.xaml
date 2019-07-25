@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkInMobileFinal.Views.PublicationView"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms">
+    <ContentView.Content>
+        <StackLayout>
+            <materialDesign:MaterialCard
+                BackgroundColor="White"
+                HorizontalOptions="Start"
+                WidthRequest="110"
+                Padding="1"
+                Margin="10"
+                HeightRequest="130"
+                >
+                <materialDesign:MaterialCard.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_Tapped"
+                        />
+                </materialDesign:MaterialCard.GestureRecognizers>
+                <Grid>
+                    <Label
+                        Text="[Publication texte]"
+                        TextColor="Black"
+                        Opacity="0.8"
+                        VerticalOptions="Center"
+                        Style="{StaticResource titleStyle}"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="Center"
+                        />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Frame 
+                            Grid.Row="1"
+                            Opacity="0.7"
+                            Padding="0"  
+                            x:Name="details"
+                            IsVisible="False"
+                            BackgroundColor="Black">
+                            <Grid
+                                Opacity="0.9"
+                                Padding="5,0"
+                                >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Source="icons8_Heart_24px.png"
+                                    WidthRequest="20"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    />
+                                <Image
+                                    Grid.Column="2"
+                                    Source="icons8_Discussion_Forum_24px.png"
+                                    />
+                                <Label
+                                    Text="15"
+                                    TextColor="White"
+                                    Grid.Column="1"
+                                    FontSize="Large"
+                                    Style="{StaticResource lblStyle}"
+                                    VerticalOptions="Center"
+                                    />
+                                <Label
+                                    Text="15"
+                                    TextColor="White"
+                                    Grid.Column="3"
+                                    FontSize="Large"
+                                    Style="{StaticResource lblStyle}"
+                                    VerticalOptions="Center"
+                                    />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </materialDesign:MaterialCard>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

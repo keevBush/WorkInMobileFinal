@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             x:Class="WorkInMobileFinal.Views.InfosUserView">
+    <ContentView.Content>
+        <StackLayout>
+            <materialDesign:MaterialButton
+                Text="Modifier les informations"
+                AllCaps="False"
+                Padding="20,0"
+                ImageSource="icons8_Edit_30px.png"
+                ButtonType="Text"
+                PressedBackgroundColor="RoyalBlue"
+                TextColor="RoyalBlue"
+                />
+            <Grid Margin="10">
+                <Image
+                    Source="icons8_Male_User_64px.png"
+                    WidthRequest="40"
+                    HorizontalOptions="Start"
+                    />
+                <Label
+                    Text="{Binding DemandeurIdentite}"
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    Margin="50,0,0,0"
+                    VerticalOptions="Center"
+                    />
+                <Label
+                    Text="{Binding DemandeurIdentite.Genre}"
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Margin="0,0,20,0"
+                    />
+            </Grid>
+            <BoxView
+                BackgroundColor="Gray"
+                VerticalOptions="Center"
+                HeightRequest="1"
+                Margin="20,0"
+                />
+            <Grid Margin="10">
+                <Image
+                    Source="icons8_Male_User_64px.png"
+                    WidthRequest="40"
+                    HorizontalOptions="Start"
+                    />
+                <Label
+                    Text="{Binding DemandeurIdentite.Username}"
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    />
+            </Grid>
+            
+            <BoxView
+                BackgroundColor="Gray"
+                VerticalOptions="Center"
+                HeightRequest="1"
+                Margin="20,0"
+                />
+            <Grid Margin="15">
+                <Image
+                    Source="icons8_Email_52px.png"
+                    WidthRequest="31"
+                    HorizontalOptions="Start"
+                    />
+                <Label
+                    Text="{Binding DemandeurIdentite.Email}"
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    />
+
+            </Grid>
+
+            <BoxView
+                BackgroundColor="Gray"
+                VerticalOptions="Center"
+                HeightRequest="1"
+                Margin="20,0"
+                />
+            <Grid Margin="15">
+                <Image
+                    Source="icons8_Phone_52px.png"
+                    WidthRequest="25"
+                    HorizontalOptions="Start"
+                    />
+                <Label
+                    Text="{Binding DemandeurIdentite.Telephone}"
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    />
+
+            </Grid>
+
+            <BoxView
+                BackgroundColor="Gray"
+                VerticalOptions="Center"
+                HeightRequest="1"
+                Margin="20,0"
+                />
+            <Grid Margin="10,5,0,10">
+                <Image
+                    Source="icons8_User_Location_50px.png"
+                    WidthRequest="30"
+                    HorizontalOptions="Start"
+                    />
+                <Label
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding DemandeurIdentite.Adresse}"/>
+                            <Span TextColor="#999999" Text=" ("/>
+                            <Span TextColor="#999999" Text="{Binding DemandeurIdentite.Localisation}" Style="{StaticResource spanBoldStyle}"/>
+                            <Span TextColor="#999999" Text=" RDC" Style="{StaticResource spanBoldStyle}"/>
+                            <Span TextColor="#999999" Text=" )"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </Grid>
+            <BoxView
+                BackgroundColor="Gray"
+                VerticalOptions="Center"
+                HeightRequest="1"
+                Margin="20,0"
+                />
+            <Grid Margin="15">
+                <Image
+                    Source="icons8_Geography_52px.png"
+                    WidthRequest="30"
+                    HorizontalOptions="Start"
+                    />
+                <Label
+                    Text="{Binding DemandeurIdentite.LanguesParle}"
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    />
+
+            </Grid>
+
+            <BoxView
+                BackgroundColor="Gray"
+                VerticalOptions="Center"
+                HeightRequest="1"
+                Margin="20,0"
+                />
+            <Grid Margin="10">
+                <Image
+                    Source="icons8_Info_64px.png"
+                    WidthRequest="40"
+                    HorizontalOptions="Start"
+                    />
+                <Label
+                    Text="{Binding DemandeurIdentite.Apropos}"
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    />
+
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

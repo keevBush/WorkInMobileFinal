@@ -17,7 +17,8 @@ namespace WorkInMobileFinal.StorageHelpers
             {
                 if (_currentUser == null)
                 {
-                    LiteDatabase db = new LiteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db"));
+                    var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db");
+                    LiteDatabase db = new LiteDatabase(path);
                     var exist = db.CollectionExists("user");
                     if (!exist)
                         _currentUser = null;
@@ -31,6 +32,11 @@ namespace WorkInMobileFinal.StorageHelpers
         {
             LiteDatabase db = new LiteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db"));
             db.GetCollection<DemandeurIdentite>("user").Insert(demandeurIdentite);
+        }
+        public static void UpdateDataUser(DemandeurIdentite demandeurIdentite)
+        {
+            LiteDatabase db = new LiteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db"));
+            db.GetCollection<DemandeurIdentite>("user").Update(demandeurIdentite);
         }
     }
 }

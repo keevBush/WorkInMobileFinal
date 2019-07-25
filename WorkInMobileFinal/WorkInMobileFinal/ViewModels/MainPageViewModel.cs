@@ -35,11 +35,22 @@ namespace WorkInMobileFinal.ViewModels
                 SecureStorageHelper.AuthKey = currentUser.Id;
                 LiteDbHelper.SaveDataUser(currentUser);
                 await loader.DismissAsync();
+                if (string.IsNullOrEmpty(currentUser.Nom) ||
+                    string.IsNullOrEmpty(currentUser.Postnom) ||
+                    string.IsNullOrEmpty(currentUser.Prenom) ||
+                    string.IsNullOrEmpty(currentUser.Username))
+                    await Navigation.PushAsync(new Views.FirstUpdatePage());
+                else
+                    await Navigation.PushAsync(new Views.HomePage());
             }
             catch (Exception e)
             {
                 await loader.DismissAsync();
-                await MaterialDialog.Instance.SnackbarAsync($"Erreur: {e.Message}",3000,Configurations.MaterialConfig.MaterialSnackbarConfiguration);
+                if(e is Refit.ApiException )
+                    await MaterialDialog.Instance.SnackbarAsync($"{((Refit.ApiException)e).Content}",3000,Configurations.MaterialConfig.MaterialSnackbarConfiguration);
+                else
+                    await MaterialDialog.Instance.SnackbarAsync($"Erreur: {e.Message}",3000,Configurations.MaterialConfig.MaterialSnackbarConfiguration);
+
             }
         }
     }

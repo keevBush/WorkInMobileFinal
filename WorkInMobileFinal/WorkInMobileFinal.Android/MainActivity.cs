@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Xamarin.Forms;
+using Android.Gms.Common;
 
 namespace WorkInMobileFinal.Droid
 {
@@ -27,6 +28,7 @@ namespace WorkInMobileFinal.Droid
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
+            CheckForGoogleServices();
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -41,6 +43,22 @@ namespace WorkInMobileFinal.Droid
            // XF.Material.Droid.Material.HandleBackButton(base.OnBackPressed);
 
             Rg.Plugins.Popup.Popup.SendBackPressed();
+        }
+
+        public void CheckForGoogleServices()
+        {
+            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+            if (resultCode != ConnectionResult.Success)
+            {
+                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                {
+                    Toast.MakeText(this, GoogleApiAvailability.Instance.GetErrorString(resultCode), ToastLength.Long);
+                }
+                else
+                {
+                    Toast.MakeText(this, "This device does not support Google Play Services", ToastLength.Long);
+                }
+            }
         }
     }
 }

@@ -13,5 +13,7 @@ namespace WorkInMobileFinal.Services
         Task Inscription([Body(BodySerializationMethod.Json)] string jsondata);
         [Post("/api/Demadeur/connexion")]
         Task<DemandeurIdentite> Connexion([Body(BodySerializationMethod.Json)]string jsondata);
+        [Put("/api/Demadeur/update")]
+        Task Update([Body(BodySerializationMethod.Json)] string jsondata);
     }
 }

@@ -12,9 +12,10 @@ namespace WorkInMobileFinal.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : TabbedPage
     {
-        public HomePage(Models.DemandeurIdentite currentUser)
+        public HomePage()
         {
             InitializeComponent();
+            BindingContext = new ViewModels.HomePageViewModel();
         }
 
         private void TabbedPage_CurrentPageChanged(object sender, EventArgs e)

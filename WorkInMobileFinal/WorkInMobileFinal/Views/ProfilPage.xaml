@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkInMobileFinal.Views.ProfilPage"
+             BackgroundColor="White"
+             xmlns:views="clr-namespace:WorkInMobileFinal.Views"
+             xmlns:materialDesugn="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                        HorizontalOptions="Start"
+                        WidthRequest="80"
+                        VerticalOptions="Start"
+                        HeightRequest="80"
+                        CornerRadius="80"
+                        Margin="10,20,0,0"
+                        BackgroundColor="Red"
+                        />
+                    <Grid
+                        Grid.Column="1"
+                        Margin="0,0,0,0"
+                        RowSpacing="0"
+                        VerticalOptions="Center"
+                        >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label
+                            Text="Username"
+                            TextColor="Black"
+                            Margin="20,20,0,0"
+                            Style="{StaticResource titleStyle}"
+                            FontSize="Large" 
+                            Opacity="0.7"
+                            />
+                        <Label
+                            Text="Nom complet"
+                            TextColor="Black"
+                            Margin="20,0,0,0"
+                            Opacity="0.8"
+                            Grid.Row="1"
+                            Style="{StaticResource lblStyle}"
+                            FontSize="Medium"
+                            />
+                        <Grid
+                            Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <materialDesugn:MaterialIconButton
+                                Grid.Column="1"
+                                ButtonType="Text"
+                                Image="icons8_PDF_52px.png"
+                                />
+                            <materialDesugn:MaterialButton
+                                ButtonType="Text"
+                                Text="Modifier"
+                                VerticalOptions="Start"
+                                PressedBackgroundColor="#d7d1db"
+                                TextColor="RoyalBlue"
+                                AllCaps="False"
+                                BorderColor="BlueViolet"
+                                />
+                        </Grid>
+                    </Grid>
+                </Grid>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <ImageButton
+                        WidthRequest="30"
+                        x:Name="btnInfo"
+                        Source="icons8_Info_52px.png"
+                        />
+                    <BoxView
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        x:Name="bottomInfo"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        HeightRequest="5"
+                        WidthRequest="60"
+                        CornerRadius="10,10,0,0"
+                        BackgroundColor="RoyalBlue"
+                        />
+                    <ImageButton
+                        Grid.Column="1"
+                        x:Name="btnPublications"
+                        WidthRequest="30"
+                        Source="icons8_Squared_Menu_96px.png"
+                        />
+                    <BoxView
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        x:Name="bottomPublication"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        HeightRequest="5"
+                        WidthRequest="60"
+                        CornerRadius="10,10,0,0"
+                        BackgroundColor="RoyalBlue"
+                        />
+
+                    <ImageButton
+                        WidthRequest="30"
+                        x:Name="btnSchool"
+                        Source="icons8_Diploma_52px.png"
+                        Grid.Column="2"
+                        >
+                        <ImageButton.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnSchoolTapGestureRecognizer_Tapped_2"/>
+                        </ImageButton.GestureRecognizers>
+                    </ImageButton>
+                    <BoxView
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"
+                        HeightRequest="5"
+                        x:Name="bottomSchool"
+                        WidthRequest="60"
+                        CornerRadius="10,10,0,0"
+                        BackgroundColor="RoyalBlue"
+                        />
+                </Grid>
+                <views:PublicationView/>
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

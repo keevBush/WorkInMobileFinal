@@ -9,12 +9,13 @@
         <ResourceDictionary>
             <converter:MaleGenderConverter x:Key="maleConverter"/>
             <converter:FemalGenderConverter x:Key="femalConverter"/>
+            <converter:GenderDataConverter x:Key="genderConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
-                Padding="20,0"
+                Padding="20,0,20,20"
                 >
                 <Grid 
                     HorizontalOptions="CenterAndExpand">
@@ -61,15 +62,31 @@
                     />
                 <materialDesign:MaterialTextField
                     Placeholder="Nom"
+                    Text="{Binding DemandeurIdentite.Nom,Mode=TwoWay}"
+                    TextColor="#444444"
+                    FloatingPlaceholderColor="RoyalBlue"
+                    Style="{StaticResource entryStyle}"
                     />
                 <materialDesign:MaterialTextField
                     Placeholder="Postnom"
+                    Text="{Binding DemandeurIdentite.Postnom,Mode=TwoWay}"
+                    TextColor="#444444"
+                    FloatingPlaceholderColor="RoyalBlue"
+                    Style="{StaticResource entryStyle}"
                     />
                 <materialDesign:MaterialTextField
                     Placeholder="Prenom"
+                    Text="{Binding DemandeurIdentite.Prenom,Mode=TwoWay}"
+                    Style="{StaticResource entryStyle}"
+                    TextColor="#444444"
+                    FloatingPlaceholderColor="RoyalBlue"
                     />
                 <materialDesign:MaterialTextField
                     Placeholder="Nom d'utilisateur"
+                    Style="{StaticResource entryStyle}"
+                    Text="{Binding DemandeurIdentite.Username,Mode=TwoWay}"
+                    TextColor="#444444"
+                    FloatingPlaceholderColor="RoyalBlue"
                     />
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -81,37 +98,83 @@
                         VerticalOptions="Center"
                         BindingContext="{x:Reference switch}"
                         Text="Homme"
-                        TextColor="{Binding IsToggled,Converter={StaticResource maleConverter}}"
+                        FontSize="Medium"
+                        TextColor="{Binding IsActivated,Converter={StaticResource maleConverter}}"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource lblStyle}"
                         />
-                    <Switch
+                    <materialDesign:MaterialSwitch
                         Grid.Column="1"
                         x:Name="switch"
-                        OnColor="RoyalBlue"
-                        IsToggled="False"
+                        InactiveThumbColor="RoyalBlue"
+                        ActiveThumbColor="BlueViolet"
+                        ActiveTrackColor="BlueViolet"
+                        InactiveTrackColor="RoyalBlue"
+                        IsActivated="{Binding DemandeurIdentite.Genre,Mode=TwoWay,Converter={StaticResource genderConverter}}"
                     />
                     <Label
                         Text="Femme"
                         BindingContext="{x:Reference switch}"
                         VerticalOptions="Center"
-                        TextColor="{Binding IsToggled,Converter={StaticResource femalConverter}}"
+                        FontSize="Medium"
+                        TextColor="{Binding IsActivated,Converter={StaticResource femalConverter}}"
                         Grid.Column="2"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource lblStyle}"
                         />
                 </Grid>
                 
-                <materialDesign:MaterialTextField
-                    InputType="Text"
+                <Picker
+                    Title="Nationalité"
+                    FontFamily="ProductSans-Medium.ttf#ProductSans-Medium"
+                    TextColor="#444444"
+                    SelectedItem="{Binding Pays,Mode=TwoWay}"
+                    ItemsSource="{Binding PhonesList}"
+                    ItemDisplayBinding="{Binding CountryName}"
                     />
+                <Label
+                    Style="{StaticResource lblStyle}"
+                    FontSize="Medium"
+                    Text="Date de naissance"
+                    />
+                <DatePicker
+                    Date="{Binding DemandeurIdentite.Naissance,Mode=TwoWay}"
+                    FontFamily="ProductSans-Medium.ttf#ProductSans-Medium"
+                    />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Picker
+                        Title="Code"
+                        SelectedItem="{Binding Code,Mode=TwoWay}"
+                        VerticalOptions="Center"
+                        FontFamily="ProductSans-Medium.ttf#ProductSans-Medium"
+                        TextColor="#444444"
+                        ItemsSource="{Binding PhonesList}"
+                        >
+                    </Picker>
+                    <materialDesign:MaterialTextField
+                        Grid.Column="1"
+                        Style="{StaticResource entryStyle}"
+                        Text="{Binding DemandeurIdentite.Telephone,Mode=TwoWay}"
+                        Placeholder="Numéro de téléphone"
+                        InputType="Telephone"
+                        />
+                </Grid>
                 <materialDesign:MaterialButton
-                    ButtonType="Text"
+                    ButtonType="Flat"
                     Style="{StaticResource btnStyle}"
                     Text="Sauvegarder"
                     AllCaps="False"
-                    FontSize="13"
+                    Command="{Binding SaveCommand}"
+                    BackgroundColor="RoyalBlue"
+                    PressedBackgroundColor="White"
+                    HorizontalOptions="End"
+                    FontSize="15"
                     />
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

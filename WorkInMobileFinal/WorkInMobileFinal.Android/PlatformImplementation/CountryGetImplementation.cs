@@ -24,7 +24,7 @@ namespace WorkInMobileFinal.Droid.PlatformImplementation
             get {
                 string content;
                 AssetManager assets = Application.Context.Assets;
-                using (StreamReader sr = new StreamReader(assets.Open("countryName.json")))
+                using (StreamReader sr = new StreamReader(assets.Open("phones.json")))
                 {
                     content = sr.ReadToEnd();
                 }

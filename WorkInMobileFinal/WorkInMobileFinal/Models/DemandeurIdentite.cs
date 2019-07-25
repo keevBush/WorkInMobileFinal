@@ -35,6 +35,8 @@ namespace WorkInMobileFinal.Models
         [BsonField("telephone")]
         [JsonProperty("telephone")]
         public string Telephone { get; set; }
+        [JsonProperty("nationalite")]
+        public string Nationalite { get; set; }
         [BsonField("genre")]
         [JsonProperty("genre")]
         public Genre Genre { get; set; }
