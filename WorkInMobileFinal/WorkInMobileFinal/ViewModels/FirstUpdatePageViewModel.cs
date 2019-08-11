@@ -8,6 +8,7 @@ using System.Text;
 using WorkInMobileFinal.Models;
 using WorkInMobileFinal.Services;
 using WorkInMobileFinal.StorageHelpers;
+using WorkInMobileFinal.Views;
 using Xamarin.Forms;
 using XF.Material.Forms.UI.Dialogs;
 
@@ -20,8 +21,10 @@ namespace WorkInMobileFinal.ViewModels
         public ObservableCollection<PhoneAffichage> PhonesList{ get; set; }
         public DemandeurIdentite DemandeurIdentite { get; set; }
         public Command SaveCommand { get; set; }
-        public FirstUpdatePageViewModel()
+        public INavigation Navigation { get; set; }
+        public FirstUpdatePageViewModel(INavigation navigation)
         {
+            this.Navigation = navigation;
             this.Pays = new PhoneAffichage();
             this.Code = new PhoneAffichage();
             this.SaveCommand = new Command(ExecuteSaveCommand);
@@ -43,6 +46,8 @@ namespace WorkInMobileFinal.ViewModels
                 await RestService.For<IBackendService>(Configurations.ServerConfig.Host).Update(JsonConvert.SerializeObject(DemandeurIdentite));
                 LiteDbHelper.UpdateDataUser(DemandeurIdentite);
                 await loader.DismissAsync();
+                await Navigation.PushAsync(new HomePage());
+                
             }
             catch (Exception e)
             {
