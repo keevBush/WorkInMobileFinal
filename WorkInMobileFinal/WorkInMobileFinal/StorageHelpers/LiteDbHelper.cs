@@ -33,6 +33,13 @@ namespace WorkInMobileFinal.StorageHelpers
             LiteDatabase db = new LiteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db"));
             db.GetCollection<DemandeurIdentite>("user").Insert(demandeurIdentite);
         }
+        public static void DeleteUser()
+        {
+            LiteDatabase db = new LiteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db"));
+            db.DropCollection("user");
+            SecureStorageHelper.DeleteKey();
+
+        }
         public static void UpdateDataUser(DemandeurIdentite demandeurIdentite)
         {
             LiteDatabase db = new LiteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db"));
