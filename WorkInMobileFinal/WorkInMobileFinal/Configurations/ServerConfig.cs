@@ -6,6 +6,6 @@ namespace WorkInMobileFinal.Configurations
 {
     public class ServerConfig
     {
-        public static string Host { get; } = "http://192.168.0.146:5002";
+        public static string Host { get; } = "https://workin-api.azurewebsites.net";
     }
 }

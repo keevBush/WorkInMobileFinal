@@ -49,5 +49,25 @@ namespace WorkInMobileFinal.Configurations
             }
 
         }
+        private static MaterialSnackbarConfiguration _materialSnackbarConfigurationError;
+
+        public static MaterialSnackbarConfiguration MaterialSnackbarConfigurationError
+        {
+            get
+            {
+                if (_materialSnackbarConfiguration == null)
+                {
+                    _materialSnackbarConfiguration = new MaterialSnackbarConfiguration
+                    {
+                        BackgroundColor = Color.Red,
+                        MessageTextColor = Color.White,
+                        TintColor = Color.White,
+                        CornerRadius = 15
+                    };
+                }
+                return _materialSnackbarConfiguration;
+            }
+
+        }
     }
 }
