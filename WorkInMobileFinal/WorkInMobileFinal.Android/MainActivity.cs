@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Support.Design.Widget;
 using Xamarin.Forms;
 using Android.Gms.Common;
+using Firebase.Iid;
+using Firebase;
 
 namespace WorkInMobileFinal.Droid
 {
@@ -28,8 +30,31 @@ namespace WorkInMobileFinal.Droid
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
-            CheckForGoogleServices();
             LoadApplication(new App());
+            
+
+        }
+        
+        void CreateNotificationChannel()
+        {
+            if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+            {
+                // Notification channels are new in API 26 (and not a part of the
+                // support library). There is no need to create a notification
+                // channel on older versions of Android.
+                return;
+            }
+
+            var channel = new NotificationChannel("100",
+                                                  "FCM Notifications",
+                                                  NotificationImportance.Default)
+            {
+
+                Description = "Firebase Cloud Messages appear in this channel"
+            };
+
+            var notificationManager = (NotificationManager)GetSystemService(Android.Content.Context.NotificationService);
+            notificationManager.CreateNotificationChannel(channel);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -41,24 +66,26 @@ namespace WorkInMobileFinal.Droid
         public override void OnBackPressed()
         {
            // XF.Material.Droid.Material.HandleBackButton(base.OnBackPressed);
-
+            
             Rg.Plugins.Popup.Popup.SendBackPressed();
         }
-
-        public void CheckForGoogleServices()
+        public void IsPlayServicesAvailable()
         {
             int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
             if (resultCode != ConnectionResult.Success)
             {
                 if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                {
-                    Toast.MakeText(this, GoogleApiAvailability.Instance.GetErrorString(resultCode), ToastLength.Long);
-                }
+                    Toast.MakeText(this, GoogleApiAvailability.Instance.GetErrorString(resultCode).ToString(),ToastLength.Long);
                 else
                 {
-                    Toast.MakeText(this, "This device does not support Google Play Services", ToastLength.Long);
+                    Toast.MakeText(this, "This device is not supported", ToastLength.Long);
                 }
             }
+            else
+            {
+                Toast.MakeText(this,"Google Play Services is available.", ToastLength.Long);
+            }
+            var token = FirebaseInstanceId.Instance.Token;
         }
     }
 }
