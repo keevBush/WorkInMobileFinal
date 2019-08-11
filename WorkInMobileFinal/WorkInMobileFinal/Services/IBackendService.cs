@@ -15,5 +15,10 @@ namespace WorkInMobileFinal.Services
         Task<DemandeurIdentite> Connexion([Body(BodySerializationMethod.Json)]string jsondata);
         [Put("/api/Demadeur/update")]
         Task Update([Body(BodySerializationMethod.Json)] string jsondata);
+        [Multipart]
+        [Post("/api/Demadeur/upload/{fileType}")]
+        Task<string> UploadFile(string fileType,[AliasAs("file")] StreamPart stream);
+        [Post("/api/Demadeur/publications/new")]
+        Task NewPublication([Body(BodySerializationMethod.Json)]string jsonData);
     }
 }
