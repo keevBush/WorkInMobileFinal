@@ -130,14 +130,20 @@
     <PackageReference Include="LiteDB">
       <Version>4.1.4</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Push">
+      <Version>2.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.2</Version>
     </PackageReference>
     <PackageReference Include="Refit">
       <Version>4.7.9</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.497661" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Plugin.FilePicker">
+      <Version>2.1.18</Version>
+    </PackageReference>
     <PackageReference Include="XF.Material">
       <Version>1.4.1.3</Version>
     </PackageReference>
