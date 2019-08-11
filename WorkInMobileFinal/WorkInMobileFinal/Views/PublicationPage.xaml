@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControl="clr-namespace:WorkInMobileFinal.CustomControls"
+             xmlns:converter="clr-namespace:WorkInMobileFinal.Converters"
+             x:Name="pubPage"
+             xmlns:vm="clr-namespace:WorkInMobileFinal.ViewModels"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             x:Class="WorkInMobileFinal.Views.PublicationPage">
+    <ContentPage.BindingContext>
+        <vm:PublicationPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:StreamToImageConverter x:Key="streamToImageConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                Text="Nouvelle publication"
+                Style="{StaticResource titleStyle}"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Margin="0,20,0,0"
+                />
+            <materialDesign:MaterialTextField
+                HorizontalOptions="Center"
+                Margin="20,0"
+                Text="{Binding TypePub,Mode=TwoWay}"
+                TintColor="RoyalBlue"
+                ChoiceSelectedCommand="{Binding SelectPubTypeCommand}"
+                InputType="Choice"
+                Choices="{Binding TypePublication}"
+                />
+            <materialDesign:MaterialButton
+                ButtonType="Text"
+                IsVisible="{Binding IsVisible}"
+                PressedBackgroundColor="#95a6da"
+                Command="{Binding FileChoiceCommand}"
+                AllCaps="False"
+                TextColor="RoyalBlue"
+                Text="Choisir un fichier"
+                Style="{StaticResource btnStyle}"
+                />
+            <materialDesign:MaterialCard
+                BackgroundColor="White"
+                Margin="30,0"
+                IsVisible="{Binding IsVisible}"
+                >
+                <Grid>
+                    <Image
+                        Source="{Binding ImgSource,Converter={StaticResource streamToImageConverter}}"
+                        />
+                </Grid>
+            </materialDesign:MaterialCard>
+            <materialDesign:MaterialCard
+                BackgroundColor="White"
+                Margin="20,0"
+                Padding="0"
+                >
+                <customControl:CustomEditor
+                    Placeholder="Ecrire quelque chose ... "
+                    PlaceholderColor="Gray"
+                    Style="{StaticResource editorStyleMedium}"
+                    Margin="20,0"
+                    />
+            </materialDesign:MaterialCard>
+            <CollectionView
+                HeightRequest="30"
+                ItemsLayout="HorizontalList"
+                ItemsSource="{Binding Lst}"
+                Margin="10,0"
+                VerticalOptions="Start"
+                ItemSizingStrategy="MeasureAllItems"
+                >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <materialDesign:MaterialChip
+                            BackgroundColor="RoyalBlue"
+                            Text="{Binding .}"
+                            ActionImageTapped="MaterialChip_ActionImageTapped"
+                            ActionImage="icons8_Delete_48px.png"
+                            TextColor="White"
+                            FontFamily="ProductSans-Medium.ttf#ProductSans-Regular"
+                            >
+                            <materialDesign:MaterialChip.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={x:Reference pubPage},Path=BindingContext.DeleteTagCommand}"
+                                    />
+                            </materialDesign:MaterialChip.GestureRecognizers>
+                        </materialDesign:MaterialChip>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <materialDesign:MaterialTextField
+                Margin="20,0"
+                Placeholder="Tags"
+                Text="{Binding CurrentTag,Mode=TwoWay}"
+                ReturnType="Go"
+                ReturnCommand="{Binding AddTagCommand}"
+                Style="{StaticResource entryStyle}"
+                />
+            <materialDesign:MaterialButton
+                Text="Sauvegarder"
+                Style="{StaticResource btnStyle}"
+                PressedBackgroundColor="#95a6da"
+                AllCaps="False"
+                ButtonType="Text"
+                Command="{Binding SaveCommand}"
+                HorizontalOptions="Center"
+                TextColor="RoyalBlue"
+                />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -147,6 +147,7 @@
                 Padding="2"
                 CornerRadius="0"
                 Elevation="0"
+                ClickCommand="{Binding LogoutCommand}"
                 VerticalOptions="EndAndExpand"
                 HeightRequest="60"
                 >

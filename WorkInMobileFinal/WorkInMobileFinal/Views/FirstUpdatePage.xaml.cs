@@ -15,7 +15,7 @@ namespace WorkInMobileFinal.Views
         public FirstUpdatePage()
         {
             InitializeComponent();
-            BindingContext = new ViewModels.FirstUpdatePageViewModel();
+            BindingContext = new ViewModels.FirstUpdatePageViewModel(Navigation);
         }
     }
 }

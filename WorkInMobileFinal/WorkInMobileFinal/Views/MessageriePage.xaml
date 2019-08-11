@@ -41,13 +41,14 @@
                                     <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Frame
-                                    Padding="0"
-                                    VerticalOptions="Center"
-                                    HorizontalOptions="Center"
-                                    CornerRadius="50"
-                                    WidthRequest="60"
-                                    HeightRequest="60"
+                                        Padding="0"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        CornerRadius="50"
+                                        WidthRequest="60"
+                                        HeightRequest="60"
                                     >
+                                        
                                     <Image
                                         WidthRequest="50"
                                         HeightRequest="50"
@@ -78,7 +79,7 @@
                                     Style="{StaticResource lblStyle}"
                                     Text="ok"
                                     />
-                                <Label
+                                        <Label
                                     Grid.Row="3"
                                     Text="date"
                                     FontSize="Micro"
