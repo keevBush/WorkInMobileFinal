@@ -8,6 +8,26 @@ namespace WorkInMobileFinal.Configurations
 {
     public class MaterialConfig
     {
+        private static MaterialAlertDialogConfiguration _materialAlertDialogConfiguration;
+        public static MaterialAlertDialogConfiguration MaterialAlertDialogConfiguration
+        {
+            get
+            {
+                if(_materialAlertDialogConfiguration == null)
+                {
+                    _materialAlertDialogConfiguration = new MaterialAlertDialogConfiguration
+                    {
+                        BackgroundColor = Color.RoyalBlue,
+                        MessageTextColor = Color.White,
+                        TintColor = Color.White,
+                        CornerRadius = 15
+                    };
+                }
+                return _materialAlertDialogConfiguration;
+            }
+        }
+
+
         private static MaterialLoadingDialogConfiguration _materialLoadingDialogConfiguration;
         public static MaterialLoadingDialogConfiguration MaterialLoadingDialogConfiguration
         {

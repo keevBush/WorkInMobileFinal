@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 namespace WorkInMobileFinal.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NotificationsPage : ContentPage
+    public partial class PublicationDetailPage : ContentPage
     {
-        public NotificationsPage()
+        public PublicationDetailPage(Models.CustomDataNotifications data)
         {
             InitializeComponent();
-            BindingContext = new ViewModels.NotificationPageViewModel(Navigation);
+            BindingContext = new ViewModels.PublicationDetailPageViewModel(data);
         }
     }
 }

@@ -139,6 +139,9 @@
     <PackageReference Include="Refit">
       <Version>4.7.9</Version>
     </PackageReference>
+    <PackageReference Include="Refractored.XamForms.PullToRefresh">
+      <Version>2.4.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
     <PackageReference Include="Xamarin.Plugin.FilePicker">

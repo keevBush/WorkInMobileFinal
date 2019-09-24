@@ -2,138 +2,184 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorkInMobileFinal.Views.ActivitePage"
+             xmlns:converter="clr-namespace:WorkInMobileFinal.Converters"
+             xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
              xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ListToStringConverter x:Key="listToStringConverter"/>
+            <converter:CandidatRemainingConverter x:Key="candidatRemainingConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <materialDesign:MaterialCard
-                BackgroundColor="White"
-                Margin="8"
-                Elevation="4"
-                Padding="15,7"
-                >
+        <pullToRefresh:PullToRefreshLayout
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsRefresh}"
+            RefreshCommand="{Binding RefreshCommand}"
+            >
+            <CollectionView 
+                ItemsSource="{Binding Propositions}"
+                Grid.Row="1">
+            <CollectionView.EmptyView>
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-                    <Grid
-                        Grid.Row="0"
+                    <Label 
+                        Text="Aucune données à afficher"
+                        FontSize="15"
+                        Margin="20,0,0,0"
+                        Style="{StaticResource titleStyle}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        />
+                    </Grid>
+                </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:MaterialCard
+                        BackgroundColor="White"
+                        Margin="8"
+                        Elevation="4"
+                        Padding="15,7"
                         >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Label
-                            TextColor="Black"
-                            FontAttributes="Bold"
-                            FontSize="Large"
-                            Opacity="0.7"
-                            Text="Nom post"
-                            Style="{StaticResource titleStyle}"
-                            />
-                        <Label
-                            TextColor="Black"
-                            FontSize="Medium"
-                            Grid.Row="1"
-                            Style="{StaticResource lblStyle}"
-                            Opacity="0.6"
-                            Margin="0,0,0,20"
-                            Text="Description post...."
-                            />
-                        <BoxView
-                            BackgroundColor="Gray"
-                            Grid.Row="2"
-                            Opacity="0.5"
-                            CornerRadius="20"
-                            HeightRequest="1"
-                            />
-                        <Label
-                            TextColor="Black"
-                            FontSize="Small"
-                            Grid.Row="3"
-                            Style="{StaticResource lblStyle}"
-                            Opacity="0.8"
-                            >
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span TextColor="#555555"
-                                          Text="Skills recherché: " 
-                                          />
-                                    <Span Text=" "/>
-                                    <Span TextColor="RoyalBlue" Text="UI,UX ASP.NET"/>
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Grid
-                            Grid.Row="4"
-                            >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Frame
-                                CornerRadius="40"
-                                Padding="0"
-                                BackgroundColor="Transparent"
-                                BorderColor="#777777"
-                                >
-                                <Image
-                                    Source="https://disruptiveludens.files.wordpress.com/2016/07/playstation-logo.png"
-                                    WidthRequest="50"
-                                    HeightRequest="50"
-                                    Aspect="Fill"
-                                    />
-                            </Frame>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
                             <Grid
-                                Grid.Column="1"
-                                RowSpacing="0"
-                                VerticalOptions="CenterAndExpand"
-                                >
+                                Grid.Row="0"
+                                >   
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                                 <Label
-                                    >
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Style="{StaticResource spanStyle}" Text="Par  "/>
-                                            <Span TextColor="#333333" Style="{StaticResource spanBoldStyle}" Text="PlayStation Inc."/>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    Opacity="0.7"
+                                    Text="{Binding }"
+                                    Style="{StaticResource titleStyle}"
+                                />
                                 <Label
+                                    TextColor="Black"
+                                    FontSize="Medium"
                                     Grid.Row="1"
-                                    Style="{StaticResource lblItalicStyle}"
+                                    Style="{StaticResource lblStyle}"
+                                    Opacity="0.6"
+                                    Margin="0,0,0,20"
+                                    Text="{Binding Offre.Description}"
+                                />
+                                <BoxView
+                                    BackgroundColor="Gray"
+                                    Grid.Row="2"
+                                    Opacity="0.5"
+                                    CornerRadius="20"
+                                    HeightRequest="1"
+                                    />
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="Small"
+                                    Grid.Row="3"
+                                    Style="{StaticResource lblStyle}"
+                                    Opacity="0.8"
                                     >
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Posté "/>
-                                            <Span Text="il y a 5 min"/>
+                                            <Span 
+                                                TextColor="#555555"
+                                                Text="Skills recherché: " 
+                                              />
+                                            <Span 
+                                                Text=" "/>
+                                            <Span 
+                                                TextColor="RoyalBlue" 
+                                                Text="{Binding Offre.Competences,Converter={StaticResource listToStringConverter}}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
+                                <Grid
+                                    Grid.Row="4"
+                                    >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Frame
+                                        CornerRadius="40"
+                                        Padding="0"
+                                        BackgroundColor="Transparent"
+                                        BorderColor="#777777"
+                                        >
+                                        <Image
+                                            Source="https://disruptiveludens.files.wordpress.com/2016/07/playstation-logo.png"
+                                            WidthRequest="50"
+                                            HeightRequest="50"
+                                            Aspect="Fill"
+                                            />
+                                    </Frame>
+                                    <Grid
+                                        Grid.Column="1"
+                                        RowSpacing="0"
+                                        VerticalOptions="CenterAndExpand"
+                                        >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                            >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{StaticResource spanStyle}" Text="Par  "/>
+                                                    <Span TextColor="#333333" Style="{StaticResource spanBoldStyle}" Text="PlayStation Inc."/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                            <Label
+                                                Grid.Row="1"
+                                                Style="{StaticResource lblItalicStyle}"
+                                                >
+                                                <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Deadline: "/>
+                                                    <Span Text="{Binding Offre.DeadLine}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Grid>
+                                </Grid>
+                                    <Label
+                                        Grid.Row="5"
+                                        Style="{StaticResource lblItalicStyle}"
+                                        FontSize="14"
+                                        Text="{Binding}"
+                                        >
+                                        
+                                    </Label>
+                                    <materialDesign:MaterialButton
+                                    ButtonType="Text"
+                                    BorderColor="RoyalBlue"
+                                    AllCaps="False"
+                                    Command="{Binding ParticiperCommand}"
+                                    PressedBackgroundColor="#a2b4eb"
+                                    TextColor="RoyalBlue"
+                                    Text="J'y participe"
+                                    HorizontalOptions="End"
+                                    Grid.Row="6"
+                                    />
                             </Grid>
                         </Grid>
-                        <materialDesign:MaterialButton
-                            ButtonType="Text"
-                            BorderColor="RoyalBlue"
-                            AllCaps="False"
-                            Command="{Binding ParticiperCommand}"
-                            PressedBackgroundColor="#a2b4eb"
-                            TextColor="RoyalBlue"
-                            Text="J'y participe"
-                            HorizontalOptions="End"
-                            Grid.Row="5"
-                            />
-                    </Grid>
-                </Grid>
-            </materialDesign:MaterialCard>
-        </StackLayout>
+                    </materialDesign:MaterialCard>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </pullToRefresh:PullToRefreshLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,7 +12,7 @@ namespace WorkInMobileFinal
         {
             InitializeComponent();
             XF.Material.Forms.Material.Init(this);
-            MainPage = new NavigationPage (new Views.PublicationPage());
+            MainPage = new NavigationPage (new Views.SplashScreen());
         }
 
         protected override void OnStart()
@@ -26,7 +26,7 @@ namespace WorkInMobileFinal
 
         private void Push_PushNotificationReceived(object sender, PushNotificationReceivedEventArgs e)
         {
-            var data = e;
+            MessagingCenter.Send<App, PushNotificationReceivedEventArgs>(this, "notification", e);
         }
 
         protected override void OnSleep()

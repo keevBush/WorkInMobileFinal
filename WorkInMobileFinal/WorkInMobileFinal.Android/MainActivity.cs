@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using Android.Gms.Common;
 using Firebase.Iid;
 using Firebase;
+using Refractored.XamForms.PullToRefresh.Droid;
 
 namespace WorkInMobileFinal.Droid
 {
@@ -30,6 +31,7 @@ namespace WorkInMobileFinal.Droid
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             XF.Material.Droid.Material.Init(this, savedInstanceState);
+            PullToRefreshLayoutRenderer.Init();
             LoadApplication(new App());
             
 

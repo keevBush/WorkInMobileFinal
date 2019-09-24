@@ -3,57 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorkInMobileFinal.Views.SplashScreen"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#c3549c"
+             BackgroundImageSource="businesshandshake.jpg"
              >
-    
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid 
-                VerticalOptions="End" 
-                 HorizontalOptions="CenterAndExpand">
-                <Grid.ColumnDefinitions>
+        <Grid
+            >
+            <Grid
+                BackgroundColor="Black"
+                Opacity="0.4"
+                >
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid 
+                    VerticalOptions="End" 
+                    HorizontalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <Frame
-                        BackgroundColor="BlueViolet"
-                        Margin="0,20,0,0"
-                        Padding="5,0"
-                        VerticalOptions="Start"
-                        >
+                    <Frame
+                    BackgroundColor="BlueViolet"
+                    Margin="0,20,0,0"
+                    Padding="5,0"
+                    VerticalOptions="Start"
+                    >
                     <Label 
-                            TextColor="White"
-                            FontSize="35"
-                            Text="Work"
-                            FontAttributes="Bold"
-                            />
+                        TextColor="White"
+                        FontSize="35"
+                        Text="Work"
+                        FontAttributes="Bold"
+                        />
                 </Frame>
-                <Frame
+                    <Frame
                         Grid.Column="1"
                         BackgroundColor="RoyalBlue"
                         Margin="0,20,0,0"
                         Padding="5,0"
                         VerticalOptions="Start"
                         >
-                    <Label 
+                        <Label 
                             TextColor="White"
                             FontSize="35"
                             Text="In"
                             FontAttributes="Bold"
                             />
-                </Frame>
+                    </Frame>
+                </Grid>
+                <ActivityIndicator
+                    Color="White"
+                    IsRunning="{Binding IsLoading}"
+                    VerticalOptions="Start" 
+                    Grid.Row="1"
+                    HorizontalOptions="CenterAndExpand"
+                     />
             </Grid>
-            <ActivityIndicator
-                Color="RoyalBlue"
-                IsRunning="{Binding IsLoading}"
-                VerticalOptions="Start" 
-                Grid.Row="1"
-                HorizontalOptions="CenterAndExpand"
-                 />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

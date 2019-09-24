@@ -1,41 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="page"
              xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             xmlns:converter="clr-namespace:WorkInMobileFinal.Converters"
              x:Class="WorkInMobileFinal.Views.NotificationsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:TimeAgoConverter x:Key="timeAgoConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout
+        <CollectionView
             x:Name="lst"
-            BindableLayout.ItemsSource="{Binding List}"
+            ItemsSource="{Binding Notifications}"
             >
-            <materialDesign:MaterialCard
-                BackgroundColor="RoyalBlue"
-                Margin="10,5"
-                Padding="20,10,20,5"
-                Elevation="3"
-                >
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-                    <Label
-                        Text="Notification Message"
-                        TextColor="White"
-                        FontSize="17"
-                        FontAttributes="Bold"
-                        />
-                    <Label
-                        Text="Date"
-                        TextColor="White"
-                        FontSize="Small"
-                        Grid.Row="1"
-                        Opacity="0.7"
-                        HorizontalOptions="End"
-                        FontAttributes="Italic"
-                        />
-                </Grid>
-            </materialDesign:MaterialCard>
-        </StackLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:MaterialCard
+                        BackgroundColor="RoyalBlue"
+                        Margin="10,5"
+                        HorizontalOptions="Center"
+                        ClickCommand="{Binding Source={x:Reference page},Path=BindingContext.NotificationClickCommand}"
+                        ClickCommandParameter="{Binding CustomData}"
+                        IsClickable="True"
+                        Padding="20,10,20,5"
+                        Elevation="3"
+                        >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label
+                                Text="{Binding Msg}"
+                                TextColor="White"
+                                FontSize="17"
+                                FontAttributes="Bold"
+                            />
+                            <Label
+                                Text="{Binding Date, Converter={StaticResource timeAgoConverter}}"
+                                TextColor="White"
+                                FontSize="Small"
+                                Grid.Row="1"
+                                Opacity="0.7"
+                                HorizontalOptions="End"
+                                FontAttributes="Italic"
+                            />
+                        </Grid>
+                    </materialDesign:MaterialCard>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>

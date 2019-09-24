@@ -25,19 +25,26 @@ namespace WorkInMobileFinal.Views
         public PublicationView()
         {
             InitializeComponent();
+            BindingContext = new ViewModels.PublicationViewViewModel();
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            if (details.IsVisible)
+            
+        }
+
+        private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = (View)(e.CurrentSelection);
+            if (item.IsVisible)
             {
-                await details.FadeTo(0, 550,Easing.SinOut);
-                details.IsVisible = false;
+                await item.FadeTo(0, 550, Easing.SinOut);
+                item.IsVisible = false;
             }
             else
             {
-                details.IsVisible = true;
-                await details.FadeTo(0.7, 550,Easing.SinIn);
+                item.IsVisible = true;
+                await item.FadeTo(0.7, 550, Easing.SinIn);
             }
         }
     }

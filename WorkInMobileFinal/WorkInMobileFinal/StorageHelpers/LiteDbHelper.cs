@@ -10,24 +10,43 @@ namespace WorkInMobileFinal.StorageHelpers
 {
     public class LiteDbHelper
     {
-        private static DemandeurIdentite _currentUser;
+        //private static DemandeurIdentite _currentUser;
         public static DemandeurIdentite CurrentUser
         {
             get
             {
-                if (_currentUser == null)
-                {
-                    var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db");
-                    LiteDatabase db = new LiteDatabase(path);
-                    var exist = db.CollectionExists("user");
-                    if (!exist)
-                        _currentUser = null;
-                    else
-                        _currentUser = db.GetCollection<DemandeurIdentite>("user").Find(d => d.Id == SecureStorageHelper.AuthKey).FirstOrDefault();
-                }
-                return _currentUser;
+                
+                var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db");
+                LiteDatabase db = new LiteDatabase(path);
+                var exist = db.CollectionExists("user");
+                if (!exist)
+                    return null;
+                else
+                    return db.GetCollection<DemandeurIdentite>("user").Find(d => d.Id == SecureStorageHelper.AuthKey).FirstOrDefault();
             }
         }
+
+        public static IEnumerable<Notification> Notifications
+        {
+            get
+            {
+                var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db");
+                LiteDatabase db = new LiteDatabase(path);
+                var exist = db.CollectionExists("notifications");
+                if (!exist)
+                    return new List<Notification>();
+                else
+                    return db.GetCollection<Notification>("user").FindAll();
+
+            }
+        }
+
+        public static void NewNotification(params Notification[] notification)
+        {
+            LiteDatabase db = new LiteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db"));
+            db.GetCollection<Notification>("notifications").InsertBulk(notification);
+        }
+
         public static void SaveDataUser(DemandeurIdentite demandeurIdentite)
         {
             LiteDatabase db = new LiteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "local_workin.db"));

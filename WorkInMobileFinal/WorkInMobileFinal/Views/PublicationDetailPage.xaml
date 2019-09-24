@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             x:Class="WorkInMobileFinal.Views.PublicationDetailPage">
+    <NavigationPage.TitleView>
+        <Label
+            FontSize="Medium"
+            Text="Publication"
+            x:Name="title"
+            Style="{StaticResource titleStyle}"
+            VerticalOptions="Center"
+            TextColor="White"
+                />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <pullToRefresh:PullToRefreshLayout
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsRefresh}"
+            >
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        VerticalOptions="Center"
+                        WidthRequest="50"
+                        Source="icons8_Info_64px.png"
+                        />
+                    <Grid
+                        VerticalOptions="Center"
+                        Grid.Column="1"
+                        RowSpacing="0"
+                        >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label
+                            Style="{StaticResource titleStyle}"
+                            FontSize="Medium"
+                            Text="Username"
+                            />
+                        <Label
+                            Grid.Row="1"
+                            Style="{StaticResource lblItalicStyle}"
+                            FontSize="Default"
+                            Text="Date"
+                            />
+                    </Grid>
+                </Grid>
+
+                <Grid>
+                    <ActivityIndicator
+                        IsRunning="True"
+                        Color="RoyalBlue"
+                        />
+                    <Image
+                        Source=""
+                        />
+                    <!--Ajouter la partie chargement image et autre-->
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image/>
+                </Grid>
+            </StackLayout>
+        </pullToRefresh:PullToRefreshLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -31,5 +31,36 @@ namespace WorkInMobileFinal.Views
         {
 
         }
+
+        private async void BtnInfo_Clicked(object sender, EventArgs e)
+        {
+            await CustomEffects.CustomFadeOut.FadeTo(bottomInfo, bottomPublication, bottomSchool);
+            if(!(content.Children[0] is Views.InfosUserView))
+            {
+                content.Children.Clear();
+                content.Children.Add(InfosUserView.Instance);
+            }
+        }
+
+        private async void BtnPublications_Clicked(object sender, EventArgs e)
+        {
+            await CustomEffects.CustomFadeOut.FadeTo(bottomPublication, bottomInfo, bottomSchool);
+            if (!(content.Children[0] is Views.PublicationView))
+            {
+                content.Children.Clear();
+                content.Children.Add(PublicationView.Instance);
+            }
+        }
+
+        private async void BtnSchool_Clicked(object sender, EventArgs e)
+        {
+            await CustomEffects.CustomFadeOut.FadeTo(bottomSchool, bottomPublication, bottomInfo);
+            if (!(content.Children[0] is Views.SchoolView))
+            {
+                content.Children.Clear();
+                content.Children.Add(SchoolView.Instance);
+            }
+
+        }
     }
 }

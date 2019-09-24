@@ -14,7 +14,25 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="2"
+                        TextColor="#333333"
+                        Text="Ranking"
+                        Style="{StaticResource titleStyle}"
+                        Margin="15,20,15,0"
+                        />
+                    <Label
+                        Grid.Column="2"
+                        TextColor="DarkGoldenrod"
+                        Margin="0,0,23,0"
+                        Text="5"
+                        Style="{StaticResource titleStyle}"
+                        FontSize="40"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        />
                     <BoxView
                         HorizontalOptions="Start"
                         WidthRequest="80"
@@ -75,7 +93,6 @@
                         </Grid>
                     </Grid>
                 </Grid>
-                
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -89,6 +106,10 @@
                     <ImageButton
                         WidthRequest="30"
                         x:Name="btnInfo"
+                        BackgroundColor="White"
+                        Clicked="BtnInfo_Clicked"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
                         Source="icons8_Info_52px.png"
                         />
                     <BoxView
@@ -106,6 +127,10 @@
                         Grid.Column="1"
                         x:Name="btnPublications"
                         WidthRequest="30"
+                        BackgroundColor="White"
+                        Clicked="BtnPublications_Clicked"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
                         Source="icons8_Squared_Menu_96px.png"
                         />
                     <BoxView
@@ -113,7 +138,9 @@
                         Grid.Column="1"
                         x:Name="bottomPublication"
                         HorizontalOptions="Center"
+                        IsVisible="False"
                         VerticalOptions="Start"
+                        Opacity="0"
                         HeightRequest="5"
                         WidthRequest="60"
                         CornerRadius="10,10,0,0"
@@ -123,12 +150,13 @@
                     <ImageButton
                         WidthRequest="30"
                         x:Name="btnSchool"
+                        VerticalOptions="Center"
+                        BackgroundColor="White"
+                        Clicked="BtnSchool_Clicked"
+                        HorizontalOptions="Center"
                         Source="icons8_Diploma_52px.png"
                         Grid.Column="2"
                         >
-                        <ImageButton.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="BtnSchoolTapGestureRecognizer_Tapped_2"/>
-                        </ImageButton.GestureRecognizers>
                     </ImageButton>
                     <BoxView
                         Grid.Row="1"
@@ -136,15 +164,18 @@
                         HorizontalOptions="Center"
                         VerticalOptions="Start"
                         HeightRequest="5"
+                        Opacity="0"
+                        IsVisible="False"
                         x:Name="bottomSchool"
                         WidthRequest="60"
                         CornerRadius="10,10,0,0"
                         BackgroundColor="RoyalBlue"
                         />
                 </Grid>
-                <views:PublicationView/>
+                <Grid x:Name="content">
+                    <views:InfosUserView/>
+                </Grid>
             </StackLayout>
-            
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

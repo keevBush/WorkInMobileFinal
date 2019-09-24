@@ -14,12 +14,12 @@ namespace WorkInMobileFinal.ViewModels
         public bool IsLoading { get; set; }
         private INavigation Navigation { get; set; }
         public DemandeurIdentite CurrentUser { get; set; }
-        public SplashScreenViewModel(INavigation navigation)
+        public  SplashScreenViewModel(INavigation navigation)
         {
             this.CurrentUser = LiteDbHelper.CurrentUser;
             this.Navigation = navigation;
             IsLoading = true;
-            CheckUser();
+            CheckUser().GetAwaiter();
         }
         public async Task CheckUser()
         {

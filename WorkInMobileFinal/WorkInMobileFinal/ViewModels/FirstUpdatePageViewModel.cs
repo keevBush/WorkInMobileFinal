@@ -40,6 +40,7 @@ namespace WorkInMobileFinal.ViewModels
             DemandeurIdentite.Password = LiteDbHelper.CurrentUser.Password;
             DemandeurIdentite.Telephone = Code.DialCode + DemandeurIdentite.Telephone;
             DemandeurIdentite.Nationalite = Pays.CountryName;
+            //DemandeurIdentite.Naissance = LiteDbHelper.CurrentUser.Naissance;
             var data = DemandeurIdentite;
             try
             {
@@ -53,9 +54,9 @@ namespace WorkInMobileFinal.ViewModels
             {
                 await loader.DismissAsync();
                 if (e is Refit.ApiException)
-                    await MaterialDialog.Instance.SnackbarAsync($"{((Refit.ApiException)e).Content}", 3000, Configurations.MaterialConfig.MaterialSnackbarConfiguration);
+                    await MaterialDialog.Instance.SnackbarAsync($"{((Refit.ApiException)e).Content}", 3000, Configurations.MaterialConfig.MaterialSnackbarConfigurationError);
                 else
-                    await MaterialDialog.Instance.SnackbarAsync($"Erreur: {e.Message}", 3000, Configurations.MaterialConfig.MaterialSnackbarConfiguration);
+                    await MaterialDialog.Instance.SnackbarAsync($"Erreur: {e.Message}", 3000, Configurations.MaterialConfig.MaterialSnackbarConfigurationError);
 
             }
 

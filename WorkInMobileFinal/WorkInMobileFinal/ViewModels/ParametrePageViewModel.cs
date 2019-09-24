@@ -17,11 +17,11 @@ namespace WorkInMobileFinal.ViewModels
 
         private async void ExecuteLogoutCommand(object obj)
         {
-            var response = await MaterialDialog.Instance.ConfirmAsync("Etes-vous sûr de vouloir vous déconnectez?", "Déconnexion", "Déconnexion");
+            var response = await MaterialDialog.Instance.ConfirmAsync("Etes-vous sûr de vouloir vous déconnectez?", "Déconnexion", "Déconnexion","Annuler", Configurations.MaterialConfig.MaterialAlertDialogConfiguration);
             if (response==true)
             {
                 StorageHelpers.LiteDbHelper.DeleteUser();
-                Application.Current.MainPage = new SplashScreen();
+                Application.Current.MainPage = new NavigationPage (new SplashScreen());
             }
         }
     }

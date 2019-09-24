@@ -1,10 +1,215 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="WorkInMobileFinal.Views.SchoolView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+    <ContentView.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid
+                    Margin="5,0"
+                    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:MaterialButton
+                        ButtonType="Text"
+                        PressedBackgroundColor="RoyalBlue"
+                        TextColor="RoyalBlue"
+                        AllCaps="False"
+                        Style="{StaticResource btnStyle}"
+                        Text="Nouvelle compétence"
+                        />
+                    <materialDesign:MaterialButton
+                        Grid.Column="1"
+                        Style="{StaticResource btnStyle}"
+                        ButtonType="Text"
+                        PressedBackgroundColor="RoyalBlue"
+                        TextColor="RoyalBlue"
+                        AllCaps="False"
+                        Text="Nouvelle Expérience"
+                        />
+                </Grid>
+                <Label
+                    Grid.Row="1"
+                    TextColor="#333333"
+                    Margin="10,0,0,0"
+                    FontSize="Large"
+                    Style="{StaticResource titleStyle}"
+                    Text="Compétences"
+                    />
+                <Grid
+                    Margin="10,0"
+                    Grid.Row="2"
+                    >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        TextColor="#333333"
+                        Style="{StaticResource titleStyle}"
+                        FontSize="Medium"
+                        Margin="10,0"
+                        Text="Ajouter une compétence"
+                        />
+                    <materialDesign:MaterialTextField
+                        Grid.Row="1"
+                        Style="{StaticResource entryStyle}"
+                        />
+                    <materialDesign:MaterialButton
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource btnStyle}"
+                        TextColor="RoyalBlue"
+                        PressedBackgroundColor="RoyalBlue"
+                        Text="Ajouter"
+                        AllCaps="False"
+                        ButtonType="Flat"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        />
+                </Grid>
+                <materialDesign:MaterialCard
+                    BorderColor="Gray"
+                    HasShadow="False"
+                    IsClickable="True"
+                    Elevation="0"
+                    Margin="10,0"
+                    Grid.Row="3"
+                    >
+                    <StackLayout
+                        BindableLayout.ItemsSource="{Binding Competences}"
+                        >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <materialDesign:MaterialChip
+                                    Margin="10,0"
+                                    BackgroundColor="RoyalBlue"
+                                    >
+                                        <Label
+                                        Text="Competence A"
+                                        TextColor="White"
+                                        Style="{StaticResource titleStyle}"
+                                    />
+                                    </materialDesign:MaterialChip>
+                                </ViewCell>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </materialDesign:MaterialCard>
+                <Label
+                    Grid.Row="4"
+                    TextColor="#333333"
+                    Margin="10,0,0,0"
+                    FontSize="Large"
+                    Style="{StaticResource titleStyle}"
+                    Text="Expérience Proffessionnelle" 
+                    />
+                <StackLayout
+                    Grid.Row="5"
+                    >
+                    <materialDesign:MaterialCard
+                        BorderColor="Gray"
+                        HasShadow="False"
+                        IsClickable="True"
+                        Padding="10"
+                        Elevation="0"
+                        Margin="10,0"
+                        >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label
+                                Text="Nom du post"
+                                TextColor="#333333"
+                                Style="{StaticResource titleStyle}"
+                                FontSize="Medium"
+                                />
+                            <Label
+                                Grid.Row="1"
+                                TextColor="#333333"
+                                Style="{StaticResource titleStyle}"
+                                FontSize="Medium"
+                                >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            Text="Du "
+                                            />
+                                        <Span
+                                            Text="Debut"
+                                            />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                Grid.Row="1"
+                                HorizontalOptions="End"
+                                TextColor="#333333"
+                                Style="{StaticResource titleStyle}"
+                                FontSize="Medium"
+                                >
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            Text="Jusqu'au "
+                                            />
+                                        <Span
+                                            Text="Fin"
+                                            />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                Grid.Row="2"
+                                Text="Une petite description"
+                                TextColor="#555555"
+                                Style="{StaticResource lblItalicStyle}"
+                                />
+                            <materialDesign:MaterialIconButton
+                                Grid.Row="3"
+                                HorizontalOptions="End"
+                                PressedBackgroundColor="Red"
+                                BackgroundColor="Transparent"
+                                WidthRequest="30"
+                                Padding="10"
+                                Image="icons8_Delete_64px.png"
+                                />
+                            <materialDesign:MaterialIconButton
+                                Grid.Row="3"
+                                HorizontalOptions="Start"
+                                BackgroundColor="Transparent"
+                                WidthRequest="30"
+                                Padding="10"
+                                PressedBackgroundColor="RoyalBlue"
+                                Image="icons8_Edit_96px.png"
+                                />
+                        </Grid>
+                    </materialDesign:MaterialCard>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentView.Content>
 </ContentView>
