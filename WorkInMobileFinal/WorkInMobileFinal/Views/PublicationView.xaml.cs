@@ -25,7 +25,7 @@ namespace WorkInMobileFinal.Views
         public PublicationView()
         {
             InitializeComponent();
-            BindingContext = new ViewModels.PublicationViewViewModel();
+            BindingContext = new ViewModels.PublicationViewViewModel(Navigation);
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)

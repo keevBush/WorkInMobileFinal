@@ -13,7 +13,7 @@ namespace WorkInMobileFinal.Views
     public partial class SchoolView : ContentView
     {
         private static SchoolView _instance;
-        public static SchoolView Instance
+        public static SchoolView  Instance
         {
             get
             {

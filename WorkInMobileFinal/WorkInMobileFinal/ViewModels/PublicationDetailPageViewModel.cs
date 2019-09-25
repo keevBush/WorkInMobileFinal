@@ -37,6 +37,10 @@ namespace WorkInMobileFinal.ViewModels
             this.data = data;
             LoadData();
         }
+        public PublicationDetailPageViewModel(Publication publication)
+        {
+            this.Publication = publication;
+        }
         public async void LoadData()
         {
             try

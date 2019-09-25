@@ -15,7 +15,12 @@ namespace WorkInMobileFinal.Views
         public PublicationDetailPage(Models.CustomDataNotifications data)
         {
             InitializeComponent();
-            BindingContext = new ViewModels.PublicationDetailPageViewModel(data);
+            //BindingContext = new ViewModels.PublicationDetailPageViewModel(data);
+        }
+        public PublicationDetailPage(Models.Publication data)
+        {
+            InitializeComponent();
+            //BindingContext = new ViewModels.PublicationDetailPageViewModel(data);
         }
     }
 }

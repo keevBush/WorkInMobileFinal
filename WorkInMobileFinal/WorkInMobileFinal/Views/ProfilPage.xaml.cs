@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using WorkInMobileFinal.Models;
+using WorkInMobileFinal.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,17 @@ namespace WorkInMobileFinal.Views
         public ProfilPage()
         {
             InitializeComponent();
+            MessagingCenter.Subscribe<PublicationViewViewModel, Publication>(this, "pub", (s, publication) =>
+               {
+                   Device.BeginInvokeOnMainThread(() =>
+                   {
+                       if (publication.PublicationDetails.TypePublication == TypePublication.Image)
+                           Navigation.PushAsync(new Views.PublicationDetailPage(publication));
+                       else if (publication.PublicationDetails.TypePublication == TypePublication.Text)
+                           Navigation.PushModalAsync(new NavigationPage(new Views.PublicationViewDetailTexte(publication)));
+                   });
+                  
+               });
         }
 
         private void BtnInfoTapGestureRecognizer_Tapped(object sender, EventArgs e)

@@ -1,24 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
-             x:Class="WorkInMobileFinal.Views.PublicationDetailPage">
-    <NavigationPage.TitleView>
-        <Label
-            FontSize="Medium"
-            Text="Publication"
-            x:Name="title"
-            Style="{StaticResource titleStyle}"
-            VerticalOptions="Center"
-            TextColor="White"
-                />
-    </NavigationPage.TitleView>
+             xmlns:materialDesign="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             x:Class="WorkInMobileFinal.Views.PublicationViewDetailTexte">
     <ContentPage.Content>
-        <pullToRefresh:PullToRefreshLayout
-            IsPullToRefreshEnabled="True"
-            IsRefreshing="{Binding IsRefresh}">
+        
             <ScrollView>
+
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -54,16 +43,15 @@
                     </Grid>
 
                     <Grid>
-                        <ActivityIndicator
-                            IsRunning="True"
-                            Color="RoyalBlue"
-                            />
-                        <Image
+                       
+                        <Label
+                            Text="{Binding Publication.PublicationDetail.Value}"
+                            VerticalOptions="Center"
                             HorizontalOptions="Center"
-                            Aspect="AspectFill"
-                            BackgroundColor="White"
-                            Source="businesshandshake.jpg"
+                            Style="{StaticResource titleStyle}"
+                            FontSize="Large"
                             />
+
                         <!--Ajouter la partie chargement image et autre-->
                     </Grid>
                     <Grid
@@ -99,8 +87,14 @@
                             VerticalOptions="Center"
                             WidthRequest="30"
                             Source="icons8_Comments_104px.png"
-                            />
+                        />
                     </Grid>
+                    <Label
+                        Text="label"
+                        Style="{StaticResource lblItalicStyle}"
+                        
+                        Margin="10,0"
+                        />
                     <BoxView
                         BackgroundColor="Gray"
                         HeightRequest="1"
@@ -146,7 +140,6 @@
                         </Grid>
                     </materialDesign:MaterialCard>
                 </StackLayout>
-            </ScrollView>
-        </pullToRefresh:PullToRefreshLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
