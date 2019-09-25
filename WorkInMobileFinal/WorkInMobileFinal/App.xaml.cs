@@ -20,7 +20,7 @@ namespace WorkInMobileFinal
             // Handle when your app starts
             if (StorageHelpers.SecureStorageHelper.AuthKey != null)
                 AppCenter.SetUserId(StorageHelpers.SecureStorageHelper.AuthKey);
-            AppCenter.Start("android=41b3b948-ee1e-452e-ae03-ea48653a1d60", typeof(Push));
+            AppCenter.Start("android=key", typeof(Push));
             Push.PushNotificationReceived += Push_PushNotificationReceived;
         }
 
